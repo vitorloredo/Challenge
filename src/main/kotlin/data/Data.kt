@@ -136,7 +136,7 @@ class Data(value: String) {
     var brazilMonthlySalary: String = valueBase.toString()
 
     init {
-        val values: List<String> = value.split(",")
+        val values: List<String> = customSplit(value)
 
         this.respondent = values[0]
 
@@ -273,6 +273,42 @@ class Data(value: String) {
         this.surveyTooLong = values[127]
         this.surveyEasy = values[128]
 
+    }
+
+    private fun customSplit(value: String): MutableList<String> {
+        var contInit = 0
+        var contFinal = 0
+        var cont = 0
+        val listFinal = mutableListOf<String>()
+        var word: String = ""
+        var notText = true
+
+        val valueFinal = "$value@"
+
+        for (letter in valueFinal) {
+
+            if (letter == '"') {
+                notText = notText != true
+            }
+
+            if ((letter == ',' || letter == '@') && notText) {
+                contFinal = cont
+
+                for (i in contInit..contFinal) {
+
+                    if (valueFinal[i] != ',' && valueFinal[i] != '@') {
+                        word += valueFinal[i]
+                    }
+                }
+
+                contInit = cont
+                listFinal.add(word)
+                word = ""
+            }
+
+            cont += 1
+        }
+        return listFinal
     }
 
     private fun convertedSalary(str: String): Double {
