@@ -1,6 +1,7 @@
 package data
 
 class Data(value: String) {
+    private val valueBase = -1.0
     private val respondent: String
     private val hobby: String
     private val openSource: String
@@ -130,6 +131,8 @@ class Data(value: String) {
     private val militaryUS: String
     private val surveyTooLong: String
     private val surveyEasy: String
+    //add in toString
+    var monthlySalary: String = valueBase.toString()
 
     init {
         val values: List<String> = value.split(",")
@@ -269,14 +272,12 @@ class Data(value: String) {
         this.surveyTooLong = values[127]
         this.surveyEasy = values[128]
 
-
     }
 
-    private fun convertedSalary(str: String): Double{
+    private fun convertedSalary(str: String): Double {
         return try {
             str.toDouble()
-        } catch (ex: NumberFormatException){
-            val valueBase = -1.0
+        } catch (ex: NumberFormatException) {
             valueBase
         }
     }

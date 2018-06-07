@@ -29,6 +29,7 @@ class ReadData {
         }
 
         managerData.managerConvertedSalary(arryData)
+        managerData.managerMonthlySalary(arryData)
 
         read.close()
     }

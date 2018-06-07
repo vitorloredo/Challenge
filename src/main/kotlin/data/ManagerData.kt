@@ -37,4 +37,8 @@ class ManagerData {
     fun managerConvertedSalary(arryData: ArrayList<Data>) {
         SetCountrySalary(arryData,idCountry).managerConvertedSalary()
     }
+
+    fun managerMonthlySalary(arryData: ArrayList<Data>){
+        setMonthlySalary(arryData).setAll()
+    }
 }

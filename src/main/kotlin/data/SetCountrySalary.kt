@@ -1,22 +1,27 @@
 package data
 
-class SetCountrySalary(val arryData: ArrayList<Data>, val idCountry: HashMap<String, MutableList<Int>>) {
+import java.util.*
+
+class SetCountrySalary(private val arrayData: ArrayList<Data>,
+                       private val idCountry: HashMap<String, MutableList<Int>>) {
 
     private val baseValueConvertedSalary = -1.0
 
     fun managerConvertedSalary() {
+
+
         for (it in idCountry) {
             val idCountryUnknown = arrayListOf<Int>()
             val idList = it.value
             val idListSize = idList.size
             var allValuesSalaryCountry = 0.0
 
-            allValuesSalaryCountry = createAverageCountry(idList, arryData, allValuesSalaryCountry, idCountryUnknown)
+            allValuesSalaryCountry = createAverageCountry(idList, arrayData, allValuesSalaryCountry, idCountryUnknown)
 
             val peopleHaveSalaryCountry = notZero(idListSize - idCountryUnknown.size)
             val averageValues = allValuesSalaryCountry / peopleHaveSalaryCountry
 
-            setAllCountryValueUnknown(idCountryUnknown, arryData, averageValues)
+            setAllCountryValueUnknown(idCountryUnknown, arrayData, averageValues)
         }
     }
 
@@ -46,6 +51,8 @@ class SetCountrySalary(val arryData: ArrayList<Data>, val idCountry: HashMap<Str
     private fun setAllCountryValueUnknown(idCountryUnknown: ArrayList<Int>, arryData: ArrayList<Data>, averageValues: Double) {
         for (id in idCountryUnknown) {
             arryData[id].convertedSalary = averageValues
+
+
         }
     }
 }
