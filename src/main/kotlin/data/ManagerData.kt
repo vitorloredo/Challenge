@@ -37,7 +37,6 @@ class ManagerData {
 
     fun manager(arrayData: ArrayList<Data>) {
         this.arrayData = arrayData
-
         managerConvertedSalary()
         managerMonthlySalary()
         managerBrazilMonthlySalary()
@@ -62,10 +61,10 @@ class ManagerData {
 
         for (id in idList) {
             listValuesInReais.add(arrayData[id].brazilMonthlySalary
-                    .replace("R\$ ","")
-                    .replace("\$","")
-                    .replace(".","")
-                    .replace(",","")
+                    .replace("R\$ ", "")
+                    .replace("\$", "")
+                    .replace(".", "")
+                    .replace(",", "")
                     .toDouble())
         }
 
