@@ -4,32 +4,32 @@ class ManagerData {
     private val idCountry = hashMapOf<String, MutableList<Int>>()
 
     fun idCountry(data: Data, value: Int) {
-        val exist = exist(data.country)
+        val country = data.country
+        val notEmpty = country != ""
 
-        if (exist) {
-            addExist(data.country, value)
+        if (notEmpty) {
+            val containsKey = idCountry.containsKey(country)
+
+            if (containsKey) {
+                addExist(country, value)
+            } else {
+                addNotExist(country, value)
+            }
         } else {
-            addNotExist(data.country,value)
+            val valueBase = -1.0
+            data.convertedSalary = valueBase
         }
-
     }
 
-    private fun exist(str: String): Boolean {
-        if (idCountry.containsKey(str)) {
-            return true
-        }
-        return false
-    }
-
-    private fun addExist(str: String, value: Int) {
-        val listValue = idCountry.get(str)
+    private fun addExist(country: String, value: Int) {
+        val listValue = idCountry.get(country)
         listValue!!.add(value)
-        idCountry[str] = listValue
+        idCountry[country] = listValue
     }
 
-    private fun addNotExist(str: String, value: Int) {
+    private fun addNotExist(country: String, value: Int) {
         val newMutableList = mutableListOf<Int>()
         newMutableList.add(value)
-        idCountry[str] = newMutableList
+        idCountry[country] = newMutableList
     }
 }

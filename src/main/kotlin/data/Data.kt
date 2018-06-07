@@ -55,7 +55,7 @@ class Data(value: String) {
     private val currency: String
     private val salary: String
     private val salaryType: String
-    private val convertedSalary: String
+    var convertedSalary: Double
     private val currencySymbol: String
     private val communicationTools: String
     private val timeFullyProductive: String
@@ -191,7 +191,9 @@ class Data(value: String) {
         this.currency = values[51]
         this.salary = values[52]
         this.salaryType = values[53]
-        this.convertedSalary = values[54]
+
+        this.convertedSalary = convertedSalary(values[54])
+
         this.currencySymbol = values[55]
         this.communicationTools = values[56]
         this.timeFullyProductive = values[57]
@@ -268,6 +270,15 @@ class Data(value: String) {
         this.surveyEasy = values[128]
 
 
+    }
+
+    private fun convertedSalary(str: String): Double{
+        return try {
+            str.toDouble()
+        } catch (ex: NumberFormatException){
+            val valueBase = -1.0
+            valueBase
+        }
     }
 
     private fun translate(str: String): String {
