@@ -4,7 +4,7 @@ class Data(value: String) {
     private val respondent: String
     private val hobby: String
     private val openSource: String
-    val country: String
+    var country: String
     private val student: String
     private val employment: String
     private val formalEducation: String

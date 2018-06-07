@@ -28,6 +28,8 @@ class ReadData {
             cont += 1
         }
 
+        managerData.managerConvertedSalary(arryData)
+
         read.close()
     }
 }
