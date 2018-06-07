@@ -9,14 +9,12 @@ class ReadData {
     private val list: MutableList<String> = mutableListOf()
 
     fun read() {
-
         val baseName = File(".").canonicalPath
         val localFileName = FileReader("$baseName\\src\\info\\base_de_respostas_10k_amostra.csv")
         val read = BufferedReader(localFileName)
 
         var line = read.readLine()
 
-        println(Data(line).toString())
 
 //        while (line != null) {
 //            list.add(line)

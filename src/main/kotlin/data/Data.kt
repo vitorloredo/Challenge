@@ -4,7 +4,7 @@ class Data(value: String) {
     private val respondent: String
     private val hobby: String
     private val openSource: String
-    private val country: String
+    val country: String
     private val student: String
     private val employment: String
     private val formalEducation: String
@@ -140,6 +140,7 @@ class Data(value: String) {
         this.openSource = translate(values[2])
 
         this.country = values[3]
+
         this.student = values[4]
         this.employment = values[5]
         this.formalEducation = values[6]
