@@ -7,31 +7,30 @@ import java.io.FileReader
 class ReadData {
 
     private val list: MutableList<String> = mutableListOf()
-    private var cont: Int = 1
-    private val arryData = arrayListOf<Data>()
+    private var cont: Int = 0
+    private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
 
-    fun read() {
+    fun read(): ArrayList<Data> {
         val baseName = File(".").canonicalPath
         val localFileName = FileReader("$baseName\\src\\info\\base_de_respostas_10k_amostra.csv")
         val read = BufferedReader(localFileName)
 
         var line = read.readLine()
-        arryData.add(Data(line))
-
 
         while (line != null) {
             list.add(line)
-            arryData.add(Data(line))
-            managerData.idCountry(arryData[cont],cont)
+            arrayData.add(Data(line))
+            managerData.idCountry(arrayData[cont], cont)
             line = read.readLine()
             cont += 1
         }
 
-        managerData.managerConvertedSalary(arryData)
-        managerData.managerMonthlySalary(arryData)
-        managerData.managerBrazilMonthlySalary(arryData)
+        managerData.managerConvertedSalary(arrayData)
+        managerData.managerMonthlySalary(arrayData)
+        managerData.managerBrazilMonthlySalary(arrayData)
 
         read.close()
+        return arrayData
     }
 }

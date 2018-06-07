@@ -1,9 +1,9 @@
 package main
 
 import data.ReadData
+import data.WritData
 
 fun main(args: Array<String>) {
-
-    ReadData().read()
-
+    val arrayData = ReadData().read()
+    WritData(arrayData).white()
 }
