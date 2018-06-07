@@ -9,7 +9,7 @@ class ReadData {
     private val list: MutableList<String> = mutableListOf()
     private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
-    private val managerData = ManagerData()
+    val managerData = ManagerData()
 
     fun read(): ArrayList<Data> {
         val baseName = File(".").canonicalPath

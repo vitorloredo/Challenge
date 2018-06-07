@@ -277,10 +277,10 @@ class Data(value: String) {
 
     private fun customSplit(value: String): MutableList<String> {
         var contInit = 0
-        var contFinal = 0
+        var contFinal: Int
         var cont = 0
         val listFinal = mutableListOf<String>()
-        var word: String = ""
+        var word = ""
         var notText = true
 
         val valueFinal = "$value@"
@@ -302,7 +302,12 @@ class Data(value: String) {
                 }
 
                 contInit = cont
-                listFinal.add(word)
+                if (word != "") {
+                    listFinal.add(word)
+                } else {
+                    listFinal.add("Unknown")
+                }
+
                 word = ""
             }
 
