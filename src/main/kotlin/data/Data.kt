@@ -208,7 +208,9 @@ class Data(value: String) {
         this.agreeDisagree1 = values[62]
         this.agreeDisagree2 = values[63]
         this.agreeDisagree3 = values[64]
+
         this.languageWorkedWith = values[65]
+
         this.languageDesireNextYear = values[66]
         this.databaseWorkedWith = values[67]
         this.databaseDesireNextYear = values[68]

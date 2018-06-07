@@ -8,6 +8,7 @@ class ManagerGraphic(private val managerData: ManagerData,
 
     private val createHistogramDataSet = CreateHistogramDataSet(title)
     private val createBarSet = CreateBarSet(title)
+    private val createBarStacked = CreateBarStacked(title)
 
     fun createHistogram(name: List<String>, countries: List<String>) {
 
@@ -30,8 +31,8 @@ class ManagerGraphic(private val managerData: ManagerData,
             var totalSum = 0.0
             val countriesValue = managerData.getCountriesValue(it)
 
-            for (id in countriesValue) {
-                totalSum += id
+            for (value in countriesValue) {
+                totalSum += value
             }
 
             val averageCountry = totalSum / countriesValue.size

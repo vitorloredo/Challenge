@@ -5,6 +5,10 @@ class ManagerData {
     private val idCountry = hashMapOf<String, MutableList<Int>>()
     private lateinit var arrayData: ArrayList<Data>
 
+    fun contLanguage(){
+
+    }
+
     fun idCountry(data: Data, value: Int) {
         val country = data.country
         val notEmpty = country != ""
@@ -13,9 +17,9 @@ class ManagerData {
             val containsKey = idCountry.containsKey(country)
 
             if (containsKey) {
-                addExist(country, value)
+                addExistCountry(country, value)
             } else {
-                addNotExist(country, value)
+                addNotExistCountry(country, value)
             }
         } else {
             data.country = "Unknown"
@@ -27,13 +31,13 @@ class ManagerData {
         return idCountry.keys
     }
 
-    private fun addExist(country: String, value: Int) {
+    private fun addExistCountry(country: String, value: Int) {
         val listValue = idCountry.get(country)
         listValue!!.add(value)
         idCountry[country] = listValue
     }
 
-    private fun addNotExist(country: String, value: Int) {
+    private fun addNotExistCountry(country: String, value: Int) {
         val newMutableList = mutableListOf<Int>()
         newMutableList.add(value)
         idCountry[country] = newMutableList
@@ -66,7 +70,6 @@ class ManagerData {
         for (id in idList) {
             listValuesInReais.add(arrayData[id].brazilMonthlySalary
                     .replace("R\$ ", "")
-                    .replace("\$", "")
                     .replace(".", "")
                     .replace(",", "")
                     .toDouble())
