@@ -34,11 +34,15 @@ class ManagerData {
         idCountry[country] = newMutableList
     }
 
-    fun managerConvertedSalary(arryData: ArrayList<Data>) {
-        SetCountrySalary(arryData,idCountry).managerConvertedSalary()
+    fun managerConvertedSalary(arrayData: ArrayList<Data>) {
+        SetCountrySalary(arrayData, idCountry).managerConvertedSalary()
     }
 
-    fun managerMonthlySalary(arryData: ArrayList<Data>){
-        setMonthlySalary(arryData).setAll()
+    fun managerMonthlySalary(arrayData: ArrayList<Data>) {
+        SetMonthlySalary(arrayData).setAll()
+    }
+
+    fun managerBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+        SetBrazilMonthlySalary(arrayData).setAll()
     }
 }

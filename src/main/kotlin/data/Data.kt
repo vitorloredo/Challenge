@@ -133,6 +133,7 @@ class Data(value: String) {
     private val surveyEasy: String
     //add in toString
     var monthlySalary: String = valueBase.toString()
+    var brazilMonthlySalary: String = valueBase.toString()
 
     init {
         val values: List<String> = value.split(",")

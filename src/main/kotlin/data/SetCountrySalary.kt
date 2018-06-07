@@ -32,11 +32,10 @@ class SetCountrySalary(private val arrayData: ArrayList<Data>,
         return people
     }
 
-    private fun createAverageCountry(idList: MutableList<Int>, arryData: ArrayList<Data>, allValuesSalaryCountry: Double, idCountryUnknown: ArrayList<Int>): Double {
+    private fun createAverageCountry(idList: MutableList<Int>, arrayData: ArrayList<Data>, allValuesSalaryCountry: Double, idCountryUnknown: ArrayList<Int>): Double {
         var allValuesCont = allValuesSalaryCountry
         for (id in idList) {
-            val convertedSalaryCountry = arryData[id].convertedSalary
-
+            val convertedSalaryCountry = arrayData[id].convertedSalary
 
             if (convertedSalaryCountry != baseValueConvertedSalary) {
                 allValuesCont += convertedSalaryCountry
@@ -51,8 +50,6 @@ class SetCountrySalary(private val arrayData: ArrayList<Data>,
     private fun setAllCountryValueUnknown(idCountryUnknown: ArrayList<Int>, arryData: ArrayList<Data>, averageValues: Double) {
         for (id in idCountryUnknown) {
             arryData[id].convertedSalary = averageValues
-
-
         }
     }
 }
