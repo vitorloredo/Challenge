@@ -3,6 +3,7 @@ package data
 class ManagerData {
 
     private val idCountry = hashMapOf<String, MutableList<Int>>()
+    private lateinit var arrayData: ArrayList<Data>
 
     fun idCountry(data: Data, value: Int) {
         val country = data.country
@@ -34,15 +35,40 @@ class ManagerData {
         idCountry[country] = newMutableList
     }
 
-    fun managerConvertedSalary(arrayData: ArrayList<Data>) {
+    fun manager(arrayData: ArrayList<Data>) {
+        this.arrayData = arrayData
+
+        managerConvertedSalary()
+        managerMonthlySalary()
+        managerBrazilMonthlySalary()
+    }
+
+    private fun managerConvertedSalary() {
         SetCountrySalary(arrayData, idCountry).managerConvertedSalary()
     }
 
-    fun managerMonthlySalary(arrayData: ArrayList<Data>) {
+    private fun managerMonthlySalary() {
         SetMonthlySalary(arrayData).setAll()
     }
 
-    fun managerBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+    private fun managerBrazilMonthlySalary() {
         SetBrazilMonthlySalary(arrayData).setAll()
+    }
+
+    fun getCountriesValue(countries: String): List<Double> {
+        val listValuesInReais = arrayListOf<Double>()
+
+        val idList = idCountry.get(countries)!!
+
+        for (id in idList) {
+            listValuesInReais.add(arrayData[id].brazilMonthlySalary
+                    .replace("R\$ ","")
+                    .replace("\$","")
+                    .replace(".","")
+                    .replace(",","")
+                    .toDouble())
+        }
+
+        return listValuesInReais
     }
 }

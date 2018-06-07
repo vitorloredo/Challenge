@@ -26,9 +26,7 @@ class ReadData {
             cont += 1
         }
 
-        managerData.managerConvertedSalary(arrayData)
-        managerData.managerMonthlySalary(arrayData)
-        managerData.managerBrazilMonthlySalary(arrayData)
+        managerData.manager(arrayData)
 
         read.close()
         return arrayData

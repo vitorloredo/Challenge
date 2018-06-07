@@ -1,20 +1,19 @@
-package Graphic
+package graphic
 
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartUtilities
 import org.jfree.chart.JFreeChart
 import org.jfree.chart.plot.PlotOrientation
 import org.jfree.data.statistics.HistogramDataset
+import java.io.File
 import java.io.FileOutputStream
 
-class CreateHistogramDataset(val title: String,
-                             val xAxisLabel: String,
-                             val yAxisLabel: String) {
+class CreateHistogramDataSet(private val title: String) {
 
     private val histogramDataset = HistogramDataset()
 
     fun setValue(listDouble: List<Double>, name: String) {
-        val doubleArray = doubleArrayOf()
+        val doubleArray = DoubleArray(listDouble.size)
         var id = 0
 
         for (it in listDouble) {
@@ -28,22 +27,22 @@ class CreateHistogramDataset(val title: String,
     }
 
     fun factory() {
-        val graf = ChartFactory.createHistogram("teste",
-                "Real",
+        val graf = ChartFactory.createHistogram(title,
                 "Paises",
+                "Reais",
                 histogramDataset,
                 PlotOrientation.VERTICAL,
                 true,
                 true,
                 false)
 
-
         create(graf)
     }
 
     private fun create(graf: JFreeChart) {
-        val file = FileOutputStream("Histogra.png")
-        ChartUtilities.writeChartAsPNG(file, graf, 550, 400)
+        val baseName = File(".").canonicalPath
+        val file = FileOutputStream("$baseName\\src\\info\\Histogra.png")
+        ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
         file.close()
     }
 
