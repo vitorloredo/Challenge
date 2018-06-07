@@ -67,7 +67,7 @@ class Data(value: String) {
     private val agreeDisagree1: String
     private val agreeDisagree2: String
     private val agreeDisagree3: String
-    private val languageWorkedWith: String
+    val languageWorkedWith: String
     private val languageDesireNextYear: String
     private val databaseWorkedWith: String
     private val databaseDesireNextYear: String

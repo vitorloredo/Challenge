@@ -22,6 +22,7 @@ class ReadData {
             list.add(line)
             arrayData.add(Data(line))
             managerData.idCountry(arrayData[cont], cont)
+            managerData.contLanguage(arrayData[cont])
             line = read.readLine()
             cont += 1
         }
