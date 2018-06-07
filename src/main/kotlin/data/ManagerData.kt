@@ -23,6 +23,10 @@ class ManagerData {
         }
     }
 
+    fun allCountry(): MutableSet<String> {
+        return idCountry.keys
+    }
+
     private fun addExist(country: String, value: Int) {
         val listValue = idCountry.get(country)
         listValue!!.add(value)

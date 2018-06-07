@@ -21,7 +21,9 @@ fun main(args: Array<String>) {
 
     val names = listOf("Brazil","United States","Germany")
 
-    ManagerGraphic(managerData,"Reais").createHistogram(names,names)
+    val managerGraphic = ManagerGraphic(managerData, "Reais")
+    managerGraphic.createHistogram(names,names)
+    managerGraphic.createBar()
 
     println(rt.freeMemory() - totalMemory )
 
