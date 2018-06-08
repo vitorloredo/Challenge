@@ -2,7 +2,7 @@ package data.cont
 
 import data.Data
 
-class ContLanguage(val contLanguage: HashMap<String, Int>) {
+class IncreaseLanguage(val contLanguage: HashMap<String, Int>) {
     fun cont(data: Data){
         val languageWorkedWith = data.languageWorkedWith
         val notUnknown = notUnknown(languageWorkedWith)

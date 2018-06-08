@@ -21,21 +21,20 @@ class ReadData {
             val data = Data(line)
             arrayData.add(data)
 
-            managerData.idCountry(arrayData[cont], cont)
-            managerData.contLanguage(arrayData[cont])
-            managerData.contIDE(arrayData[cont])
+            managerData.setIdCountry(arrayData[cont], cont)
+            managerData.increaseLanguage(arrayData[cont])
+            managerData.increaseIDE(arrayData[cont])
 
             line = read.readLine()
             cont += 1
         }
 
 
-        managerData.manager(arrayData)
+        managerData.handleBrazilianSalary(arrayData)
 
         WritData(arrayData).white()
 
         read.close()
-
 
 
         return managerData

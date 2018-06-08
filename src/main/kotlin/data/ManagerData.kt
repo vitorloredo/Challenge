@@ -14,7 +14,7 @@ class ManagerData {
     private val contIDE = hashMapOf<String, Int>()
     private val contBrazilMonthlySalaryCountry = hashMapOf<String, List<String>>()
 
-    fun idCountry(data: Data, position: Int) {
+    fun setIdCountry(data: Data, position: Int) {
         val country = data.country
         val notUnknown = notUnknown(country)
 
@@ -27,7 +27,6 @@ class ManagerData {
                 addNotExistCountry(country, position)
             }
         } else {
-            data.country = "Unknown"
             data.convertedSalary = 0.0
         }
     }
@@ -36,12 +35,12 @@ class ManagerData {
         return idCountry.keys
     }
 
-    fun contIDE(data: Data) {
-       ContInfo(contIDE).cont(data)
+    fun increaseIDE(data: Data) {
+        IncreaseIDE(contIDE).cont(data)
     }
 
-    fun contLanguage(data: Data) {
-        ContLanguage(contLanguage).cont(data)
+    fun increaseLanguage(data: Data) {
+        IncreaseLanguage(contLanguage).cont(data)
     }
 
     private fun contPeopleCountry(name: String) = idCountry[name]!!.size
@@ -62,27 +61,27 @@ class ManagerData {
         idCountry[country] = newMutableList
     }
 
-    fun manager(arrayData: ArrayList<Data>) {
-        managerConvertedSalary(arrayData)
-        managerMonthlySalary(arrayData)
-        managerBrazilMonthlySalary(arrayData)
+    fun handleBrazilianSalary(arrayData: ArrayList<Data>) {
+        countrySalaryUnknown(arrayData)
+        createMonthlySalary(arrayData)
+        createBrazilMonthlySalary(arrayData)
         contAllBrazilMonthlySalary(arrayData)
     }
 
     private fun contAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
-        ContAllBrazilMonthlySalary(idCountry).cont(arrayData,contBrazilMonthlySalaryCountry)
+        GetAllBrazilMonthlySalary(idCountry).getAll(arrayData, contBrazilMonthlySalaryCountry)
     }
 
-    private fun managerConvertedSalary(arrayData: ArrayList<Data>) {
-        SetCountrySalary(arrayData, idCountry).managerConvertedSalary()
+    private fun countrySalaryUnknown(arrayData: ArrayList<Data>) {
+        CountrySalary(arrayData, idCountry).setConvertedSalaryUnknown()
     }
 
-    private fun managerMonthlySalary(arrayData: ArrayList<Data>) {
-        SetMonthlySalary(arrayData).setAll()
+    private fun createMonthlySalary(arrayData: ArrayList<Data>) {
+        CreateMonthlySalary(arrayData).setAll()
     }
 
-    private fun managerBrazilMonthlySalary(arrayData: ArrayList<Data>) {
-        SetBrazilMonthlySalary(arrayData).setAll()
+    private fun createBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+        CreateBrazilMonthlySalary(arrayData).setAll()
     }
 
     fun getCountriesBrazilMonthly(countries: String): CountriesBrazilMonthly {

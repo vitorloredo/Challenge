@@ -2,7 +2,7 @@ package data.cont
 
 import data.Data
 
-class ContInfo(private val contIDE: HashMap<String, Int>) {
+class IncreaseIDE(private val contIDE: HashMap<String, Int>) {
     fun cont(data: Data) {
         val iDE = data.iDE
         val notUnknown = notUnknown(iDE)

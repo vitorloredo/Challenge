@@ -3,12 +3,12 @@ package data.set
 import data.Data
 import java.util.*
 
-class SetCountrySalary(private val arrayData: ArrayList<Data>,
-                       private val idCountry: HashMap<String, MutableList<Int>>) {
+class CountrySalary(private val arrayData: ArrayList<Data>,
+                    private val idCountry: HashMap<String, MutableList<Int>>) {
 
     private val baseValueConvertedSalary = -1.0
 
-    fun managerConvertedSalary() {
+    fun setConvertedSalaryUnknown() {
 
         for (it in idCountry) {
             val idCountryUnknown = arrayListOf<Int>()
