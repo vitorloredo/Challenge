@@ -10,7 +10,7 @@ class ReadData {
     private val arrayData = arrayListOf<Data>()
     val managerData = ManagerData()
 
-    fun read(): ArrayList<Data> {
+    fun read(): ManagerData {
         val baseName = File(".").canonicalPath
         val localFileName = FileReader("$baseName\\src\\info\\base_de_respostas_10k_amostra.csv")
         val read = BufferedReader(localFileName)
@@ -29,12 +29,16 @@ class ReadData {
             cont += 1
         }
 
+
         managerData.manager(arrayData)
 
+        WritData(arrayData).white()
 
         read.close()
-        WritData(arrayData).white()
-        return arrayData
+
+
+
+        return managerData
     }
 
 

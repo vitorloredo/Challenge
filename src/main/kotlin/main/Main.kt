@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
 
     val totalMemory = rt.totalMemory()
 
-    val arrayData = readData.read()
+    readData.read()
     val managerData = readData.managerData
 
 

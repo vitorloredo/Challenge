@@ -1,62 +1,38 @@
 package data
 
 import extend.removeFormat
+import simplifiedclass.CountriesBrazilMonthly
+import simplifiedclass.IDE
+import simplifiedclass.Language
 
 class ManagerData {
 
     private val idCountry = hashMapOf<String, MutableList<Int>>()
     private val contLanguage = hashMapOf<String, Int>()
-    private lateinit var arrayData: ArrayList<Data>
     private val contIDE = hashMapOf<String, Int>()
-    private val allBrazilMonthlySalaryCountry = hashMapOf<String, String>()
+    private val contBrazilMonthlySalaryCountry = hashMapOf<String, List<String>>()
 
     fun contIDE(data: Data) {
-        val iDE = data.iDE
-        val notUnknown = notUnknown(iDE)
-
-        if (notUnknown) {
-            val iDEList = extractList(iDE)
-
-            for (name in iDEList) {
-                val containsKey = contIDE.containsKey(name)
-
-                if (containsKey) {
-                    addExistIDE(name)
-                } else {
-                    addNotExistIDE(name)
-                }
-            }
-        }
+        ContInfo(contIDE).Cont(data)
     }
 
-    fun setAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+    private fun contAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
         val allCountry = allCountry()
         for (name in allCountry) {
-            val index = idCountry.get(name)!![0]
-            allBrazilMonthlySalaryCountry[name] = arrayData[index].brazilMonthlySalary
+            val listValue = arrayListOf<String>()
+            for (index in idCountry.get(name)!!) {
+                listValue.add(arrayData[index].brazilMonthlySalary)
+
+            }
+            contBrazilMonthlySalaryCountry[name] = listValue
         }
     }
 
     fun contLanguage(data: Data) {
-        val languageWorkedWith = data.languageWorkedWith
-        val notUnknown = notUnknown(languageWorkedWith)
-
-        if (notUnknown) {
-            val listLanguage = extractList(languageWorkedWith)
-
-            for (name in listLanguage) {
-                val containsKey = contLanguage.containsKey(name)
-
-                if (containsKey) {
-                    addExistLanguage(name)
-                } else {
-                    addNotExistLanguage(name)
-                }
-            }
-        }
+        ContLanguage(contLanguage).cont(data)
     }
 
-    fun idCountry(data: Data, value: Int) {
+    fun idCountry(data: Data, position: Int) {
         val country = data.country
         val notUnknown = notUnknown(country)
 
@@ -64,9 +40,9 @@ class ManagerData {
             val containsKey = idCountry.containsKey(country)
 
             if (containsKey) {
-                addExistCountry(country, value)
+                addExistCountry(country, position)
             } else {
-                addNotExistCountry(country, value)
+                addNotExistCountry(country, position)
             }
         } else {
             data.country = "Unknown"
@@ -78,38 +54,16 @@ class ManagerData {
         return idCountry.keys
     }
 
-    private fun addExistLanguage(name: String) {
-        var value = contLanguage.get(name)!!
-        value += 1
-
-        contLanguage[name] = value
-    }
-
-    private fun addNotExistLanguage(name: String) {
-        contLanguage[name] = 1
-    }
-
-    private fun addExistIDE(name: String) {
-        var value = contIDE.get(name)!!
-        value += 1
-
-        contIDE[name] = value
-    }
-
-    private fun addNotExistIDE(name: String) {
-        contIDE[name] = 1
-    }
-
     private fun contPeopleCountry(name: String) = idCountry[name]!!.size
 
     private fun extractList(str: String) = str.split(";")
 
     private fun notUnknown(country: String) = country != "Unknown"
 
-    private fun addExistCountry(country: String, value: Int) {
+    private fun addExistCountry(country: String, position: Int) {
         val listValue = idCountry.get(country)!!
 
-        listValue.add(value)
+        listValue.add(position)
         idCountry[country] = listValue
     }
 
@@ -121,36 +75,40 @@ class ManagerData {
     }
 
     fun manager(arrayData: ArrayList<Data>) {
-        this.arrayData = arrayData
-        managerConvertedSalary()
-        managerMonthlySalary()
-        managerBrazilMonthlySalary()
-        setAllBrazilMonthlySalary(arrayData)
+        managerConvertedSalary(arrayData)
+        managerMonthlySalary(arrayData)
+        managerBrazilMonthlySalary(arrayData)
+        contAllBrazilMonthlySalary(arrayData)
     }
 
-    private fun managerConvertedSalary() {
+    private fun managerConvertedSalary(arrayData: ArrayList<Data>) {
         SetCountrySalary(arrayData, idCountry).managerConvertedSalary()
     }
 
-    private fun managerMonthlySalary() {
+    private fun managerMonthlySalary(arrayData: ArrayList<Data>) {
         SetMonthlySalary(arrayData).setAll()
     }
 
-    private fun managerBrazilMonthlySalary() {
+    private fun managerBrazilMonthlySalary(arrayData: ArrayList<Data>) {
         SetBrazilMonthlySalary(arrayData).setAll()
     }
 
-    fun getCountriesValue(countries: String): List<Double> {
+    fun getCountriesBrazilMonthly(countries: String): CountriesBrazilMonthly {
+        val ListMonthlySalary = contBrazilMonthlySalaryCountry[countries]!!
+
         val listValuesInReal = arrayListOf<Double>()
-
-        val idList = idCountry.get(countries)!!
-
-        for (id in idList) {
-            listValuesInReal.add(arrayData[id].brazilMonthlySalary
+        for (id in ListMonthlySalary) {
+            listValuesInReal.add(id
                     .removeFormat()
                     .replace(".", "")
                     .toDouble())
         }
-        return listValuesInReal
+
+        return CountriesBrazilMonthly(listValuesInReal)
     }
+
+    fun createIDE() = IDE(contIDE)
+    fun createLanguage() = Language(contLanguage)
+
+
 }

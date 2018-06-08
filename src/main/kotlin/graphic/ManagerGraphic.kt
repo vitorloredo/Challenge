@@ -15,8 +15,8 @@ class ManagerGraphic(private val managerData: ManagerData,
         var cont = 0
 
         for (it in countries) {
-            val listValueCountries = managerData.getCountriesValue(it)
-            createHistogramDataSet.setValue(listValueCountries, name[cont])
+            val listValueCountries = managerData.getCountriesBrazilMonthly(it)
+            createHistogramDataSet.setValue(listValueCountries.listValuesInReal, name[cont])
             cont += 1
         }
 
@@ -29,13 +29,15 @@ class ManagerGraphic(private val managerData: ManagerData,
 
         for (it in allCountry) {
             var totalSum = 0.0
-            val countriesValue = managerData.getCountriesValue(it)
+            val countriesValue = managerData.getCountriesBrazilMonthly(it)
 
-            for (value in countriesValue) {
+            val peopleCountries = countriesValue.listValuesInReal.size
+
+            for (value in countriesValue.listValuesInReal) {
                 totalSum += value
             }
 
-            val averageCountry = totalSum / countriesValue.size
+            val averageCountry = totalSum / peopleCountries
 
             createBarSet.setValue(it, averageCountry, id)
             id += 1
