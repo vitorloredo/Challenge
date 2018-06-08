@@ -12,26 +12,6 @@ class ManagerData {
     private val contIDE = hashMapOf<String, Int>()
     private val contBrazilMonthlySalaryCountry = hashMapOf<String, List<String>>()
 
-    fun contIDE(data: Data) {
-        ContInfo(contIDE).Cont(data)
-    }
-
-    private fun contAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
-        val allCountry = allCountry()
-        for (name in allCountry) {
-            val listValue = arrayListOf<String>()
-            for (index in idCountry.get(name)!!) {
-                listValue.add(arrayData[index].brazilMonthlySalary)
-
-            }
-            contBrazilMonthlySalaryCountry[name] = listValue
-        }
-    }
-
-    fun contLanguage(data: Data) {
-        ContLanguage(contLanguage).cont(data)
-    }
-
     fun idCountry(data: Data, position: Int) {
         val country = data.country
         val notUnknown = notUnknown(country)
@@ -54,9 +34,15 @@ class ManagerData {
         return idCountry.keys
     }
 
-    private fun contPeopleCountry(name: String) = idCountry[name]!!.size
+    fun contIDE(data: Data) {
+        ContInfo(contIDE).cont(data)
+    }
 
-    private fun extractList(str: String) = str.split(";")
+    fun contLanguage(data: Data) {
+        ContLanguage(contLanguage).cont(data)
+    }
+
+    private fun contPeopleCountry(name: String) = idCountry[name]!!.size
 
     private fun notUnknown(country: String) = country != "Unknown"
 
@@ -81,6 +67,10 @@ class ManagerData {
         contAllBrazilMonthlySalary(arrayData)
     }
 
+    private fun contAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+        ContAllBrazilMonthlySalary(idCountry).cont(arrayData,contBrazilMonthlySalaryCountry)
+    }
+
     private fun managerConvertedSalary(arrayData: ArrayList<Data>) {
         SetCountrySalary(arrayData, idCountry).managerConvertedSalary()
     }
@@ -94,10 +84,10 @@ class ManagerData {
     }
 
     fun getCountriesBrazilMonthly(countries: String): CountriesBrazilMonthly {
-        val ListMonthlySalary = contBrazilMonthlySalaryCountry[countries]!!
+        val listMonthlySalary = contBrazilMonthlySalaryCountry[countries]!!
 
         val listValuesInReal = arrayListOf<Double>()
-        for (id in ListMonthlySalary) {
+        for (id in listMonthlySalary) {
             listValuesInReal.add(id
                     .removeFormat()
                     .replace(".", "")

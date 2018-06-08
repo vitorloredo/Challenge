@@ -1,7 +1,7 @@
 package data
 
-class ContInfo(val contIDE: HashMap<String, Int>) {
-    fun Cont(data: Data) {
+class ContInfo(private val contIDE: HashMap<String, Int>) {
+    fun cont(data: Data) {
         val iDE = data.iDE
         val notUnknown = notUnknown(iDE)
 
