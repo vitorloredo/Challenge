@@ -75,7 +75,7 @@ class Data(value: String) {
     private val platformDesireNextYear: String
     private val frameworkWorkedWith: String
     private val frameworkDesireNextYear: String
-    private val iDE: String
+    val iDE: String
     private val operatingSystem: String
     private val numberMonitors: String
     private val methodology: String
@@ -218,7 +218,9 @@ class Data(value: String) {
         this.platformDesireNextYear = values[70]
         this.frameworkWorkedWith = values[71]
         this.frameworkDesireNextYear = values[72]
+
         this.iDE = values[73]
+
         this.operatingSystem = values[74]
         this.numberMonitors = values[75]
         this.methodology = values[76]

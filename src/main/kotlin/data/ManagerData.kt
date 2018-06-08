@@ -5,13 +5,33 @@ class ManagerData {
     private val idCountry = hashMapOf<String, MutableList<Int>>()
     private val contLanguage = hashMapOf<String, Int>()
     private lateinit var arrayData: ArrayList<Data>
+    private val contIDE = hashMapOf<String, Int>()
+
+    fun contIDE(data: Data) {
+        val iDE = data.iDE
+        val notUnknown = notUnknown(iDE)
+
+        if (notUnknown) {
+            val iDEList = extractList(iDE)
+
+            for (name in iDEList) {
+                val containsKey = contIDE.containsKey(name)
+
+                if (containsKey) {
+                    addExistIDE(name)
+                } else {
+                    addNotExistIDE(name)
+                }
+            }
+        }
+    }
 
     fun contLanguage(data: Data) {
         val languageWorkedWith = data.languageWorkedWith
         val notUnknown = notUnknown(languageWorkedWith)
 
         if (notUnknown) {
-            val listLanguage = extractLanguage(languageWorkedWith)
+            val listLanguage = extractList(languageWorkedWith)
 
             for (name in listLanguage) {
                 val containsKey = contLanguage.containsKey(name)
@@ -23,17 +43,6 @@ class ManagerData {
                 }
             }
         }
-    }
-
-    private fun addExistLanguage(name: String) {
-        var value = contLanguage.get(name)!!
-        value += 1
-
-        contLanguage[name] = value
-    }
-
-    private fun addNotExistLanguage(name: String) {
-        contLanguage[name] = 1
     }
 
     fun idCountry(data: Data, value: Int) {
@@ -54,13 +63,35 @@ class ManagerData {
         }
     }
 
-    private fun extractLanguage(languageWorkedWith: String) = languageWorkedWith.split(";")
-
-    private fun notUnknown(country: String) = country != "Unknown"
-
     fun allCountry(): MutableSet<String> {
         return idCountry.keys
     }
+
+    private fun addExistLanguage(name: String) {
+        var value = contLanguage.get(name)!!
+        value += 1
+
+        contLanguage[name] = value
+    }
+
+    private fun addNotExistLanguage(name: String) {
+        contLanguage[name] = 1
+    }
+
+    private fun addExistIDE(name: String) {
+        var value = contIDE.get(name)!!
+        value += 1
+
+        contIDE[name] = value
+    }
+
+    private fun addNotExistIDE(name: String) {
+        contIDE[name] = 1
+    }
+
+    private fun extractList(str: String) = str.split(";")
+
+    private fun notUnknown(country: String) = country != "Unknown"
 
     private fun addExistCountry(country: String, value: Int) {
         val listValue = idCountry.get(country)!!
@@ -96,18 +127,17 @@ class ManagerData {
     }
 
     fun getCountriesValue(countries: String): List<Double> {
-        val listValuesInReais = arrayListOf<Double>()
+        val listValuesInReal = arrayListOf<Double>()
 
         val idList = idCountry.get(countries)!!
 
         for (id in idList) {
-            listValuesInReais.add(arrayData[id].brazilMonthlySalary
+            listValuesInReal.add(arrayData[id].brazilMonthlySalary
                     .replace("R\$ ", "")
                     .replace(".", "")
                     .replace(",", "")
                     .toDouble())
         }
-
-        return listValuesInReais
+        return listValuesInReal
     }
 }
