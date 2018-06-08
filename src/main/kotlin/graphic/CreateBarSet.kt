@@ -13,7 +13,6 @@ class CreateBarSet(val title: String) {
     private val histogramDataset = DefaultCategoryDataset()
 
     fun setValue(name: String, value: Double, id: Int) {
-
         histogramDataset.addValue(value, name, id)
     }
 

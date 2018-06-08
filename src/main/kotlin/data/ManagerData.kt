@@ -12,7 +12,7 @@ class ManagerData {
     private val idCountry = hashMapOf<String, MutableList<Int>>()
     private val contLanguage = hashMapOf<String, Int>()
     private val contIDE = hashMapOf<String, Int>()
-    private val contBrazilMonthlySalaryCountry = hashMapOf<String, List<String>>()
+    private val allBrazilMonthlySalaryCountryAllCountries = hashMapOf<String, List<String>>()
 
     fun setIdCountry(data: Data, position: Int) {
         val country = data.country
@@ -65,11 +65,11 @@ class ManagerData {
         countrySalaryUnknown(arrayData)
         createMonthlySalary(arrayData)
         createBrazilMonthlySalary(arrayData)
-        contAllBrazilMonthlySalary(arrayData)
+        getAllBrazilMonthlySalary(arrayData)
     }
 
-    private fun contAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
-        GetAllBrazilMonthlySalary(idCountry).getAll(arrayData, contBrazilMonthlySalaryCountry)
+    private fun getAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+        GetAllBrazilMonthlySalary(idCountry).getAll(arrayData, allBrazilMonthlySalaryCountryAllCountries)
     }
 
     private fun countrySalaryUnknown(arrayData: ArrayList<Data>) {
@@ -84,8 +84,8 @@ class ManagerData {
         CreateBrazilMonthlySalary(arrayData).setAll()
     }
 
-    fun getCountriesBrazilMonthly(countries: String): CountriesBrazilMonthly {
-        val listMonthlySalary = contBrazilMonthlySalaryCountry[countries]!!
+    fun getCountriesBrazilMonthlyAnyCountry(countries: String): CountriesBrazilMonthly {
+        val listMonthlySalary = allBrazilMonthlySalaryCountryAllCountries[countries]!!
 
         val listValuesInReal = arrayListOf<Double>()
         for (id in listMonthlySalary) {
@@ -95,7 +95,7 @@ class ManagerData {
                     .toDouble())
         }
 
-        return CountriesBrazilMonthly(listValuesInReal)
+        return CountriesBrazilMonthly(listValuesInReal,countries,contPeopleCountry(countries))
     }
 
     fun createIDE() = IDE(contIDE)

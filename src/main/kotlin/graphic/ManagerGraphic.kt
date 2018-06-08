@@ -1,50 +1,41 @@
 package graphic
 
 import data.ManagerData
+import simplifiedclass.CountriesBrazilMonthly
 
 
-class ManagerGraphic(private val managerData: ManagerData,
-                     title: String) {
+class ManagerGraphic {
 
-    private val createHistogramDataSet = CreateHistogramDataSet(title)
-    private val createBarSet = CreateBarSet(title)
-    private val createBarStacked = CreateBarStacked(title)
+    fun createHistograma(brazilMonthly: CountriesBrazilMonthly,
+                         brazilMonthly2: CountriesBrazilMonthly,
+                         brazilMonthly3: CountriesBrazilMonthly,
+                         title: String) {
+        val histogram = CreateHistogram(title)
 
-    fun createHistogram(name: List<String>, countries: List<String>) {
+        histogram.setValue(brazilMonthly.value, brazilMonthly.country)
+
+        histogram.setValue(brazilMonthly2.value, brazilMonthly2.country)
+
+        histogram.setValue(brazilMonthly3.value, brazilMonthly3.country)
+
+        histogram.factory()
+
+    }
+
+    fun createBarMonthly(title: String, managerData: ManagerData) {
+        val allCountry = managerData.allCountry()
+        val createBarSet = CreateBarSet(title)
 
         var cont = 0
 
-        for (it in countries) {
-            val listValueCountries = managerData.getCountriesBrazilMonthly(it)
-            createHistogramDataSet.setValue(listValueCountries.listValuesInReal, name[cont])
-            cont += 1
-        }
-
-        createHistogramDataSet.factory()
-    }
-
-    fun createBar() {
-        val allCountry = managerData.allCountry()
-        var id = 0
-
         for (it in allCountry) {
-            var totalSum = 0.0
-            val countriesValue = managerData.getCountriesBrazilMonthly(it)
+            val countries = managerData.getCountriesBrazilMonthlyAnyCountry(it)
 
-            val peopleCountries = countriesValue.listValuesInReal.size
+            createBarSet.setValue(countries.country, countries.amount(), cont)
 
-            for (value in countriesValue.listValuesInReal) {
-                totalSum += value
-            }
-
-            val averageCountry = totalSum / peopleCountries
-
-            createBarSet.setValue(it, averageCountry, id)
-            id += 1
+            cont += 1
         }
 
         createBarSet.factory()
     }
-
-
 }

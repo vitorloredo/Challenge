@@ -11,15 +11,24 @@ fun main(args: Array<String>) {
 
     val totalMemory = rt.totalMemory()
 
-    readData.read()
-    val managerData = readData.managerData
+    val managerData = readData.read()
+
+    val brazilBrazilMonthly = managerData.getCountriesBrazilMonthlyAnyCountry("Brazil")
+    val unitedBrazilMonthly = managerData.getCountriesBrazilMonthlyAnyCountry("United States")
+    val germanyBrazilMonthly = managerData.getCountriesBrazilMonthlyAnyCountry("Germany")
+
+    val managerGraphic = ManagerGraphic()
+
+    managerGraphic.createHistograma(brazilBrazilMonthly, unitedBrazilMonthly, germanyBrazilMonthly, "Reais")
+
+    managerGraphic.createBarMonthly(managerData = managerData,title = "Media de salarios")
 
 
-    val names = listOf("Brazil", "United States", "Germany")
 
-    val managerGraphic = ManagerGraphic(managerData, "Reais")
-    managerGraphic.createHistogram(names, names)
-    managerGraphic.createBar()
+    val ides = managerData.createIDE()
+    val anguage = managerData.createLanguage()
+
+
 
     println(rt.freeMemory() - totalMemory)
 
