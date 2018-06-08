@@ -5,12 +5,11 @@ class CountriesBrazilMonthly(listValuesInReal: ArrayList<Double>, val country: S
 
     fun amount(): Double {
         var cont = 0.0
-        for (it in value){
+        for (it in value) {
             cont += it
         }
         return cont
     }
 
-    fun average() = amount()/amountPeople
-
+    fun average() = amount() / amountPeople
 }

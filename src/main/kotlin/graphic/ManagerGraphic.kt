@@ -26,14 +26,11 @@ class ManagerGraphic {
         val allCountry = managerData.allCountry()
         val createBarSet = CreateBarSet(title)
 
-        var cont = 0
 
         for (it in allCountry) {
             val countries = managerData.getCountriesBrazilMonthlyAnyCountry(it)
 
-            createBarSet.setValue(countries.country, countries.amount(), cont)
-
-            cont += 1
+            createBarSet.setValue(countries.country, countries.amount())
         }
 
         createBarSet.factory()

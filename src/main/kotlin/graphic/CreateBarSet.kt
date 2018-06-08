@@ -12,8 +12,9 @@ class CreateBarSet(val title: String) {
 
     private val histogramDataset = DefaultCategoryDataset()
 
-    fun setValue(name: String, value: Double, id: Int) {
-        histogramDataset.addValue(value, name, id)
+
+    fun setValue(name: String, value: Double) {
+        histogramDataset.addValue(value, name, name)
     }
 
     fun factory() {
@@ -32,7 +33,7 @@ class CreateBarSet(val title: String) {
     private fun create(graf: JFreeChart) {
         val baseName = File(".").canonicalPath
         val file = FileOutputStream("$baseName\\src\\info\\Barra.png")
-        ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
+        ChartUtilities.writeChartAsPNG(file, graf, 550, 400)
         file.close()
     }
 
