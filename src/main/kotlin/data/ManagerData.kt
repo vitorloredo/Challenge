@@ -8,6 +8,7 @@ class ManagerData {
     private val contLanguage = hashMapOf<String, Int>()
     private lateinit var arrayData: ArrayList<Data>
     private val contIDE = hashMapOf<String, Int>()
+    private val allBrazilMonthlySalaryCountry = hashMapOf<String, String>()
 
     fun contIDE(data: Data) {
         val iDE = data.iDE
@@ -25,6 +26,14 @@ class ManagerData {
                     addNotExistIDE(name)
                 }
             }
+        }
+    }
+
+    fun setAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+        val allCountry = allCountry()
+        for (name in allCountry) {
+            val index = idCountry.get(name)!![0]
+            allBrazilMonthlySalaryCountry[name] = arrayData[index].brazilMonthlySalary
         }
     }
 
@@ -91,6 +100,8 @@ class ManagerData {
         contIDE[name] = 1
     }
 
+    private fun contPeopleCountry(name: String) = idCountry[name]!!.size
+
     private fun extractList(str: String) = str.split(";")
 
     private fun notUnknown(country: String) = country != "Unknown"
@@ -114,6 +125,7 @@ class ManagerData {
         managerConvertedSalary()
         managerMonthlySalary()
         managerBrazilMonthlySalary()
+        setAllBrazilMonthlySalary(arrayData)
     }
 
     private fun managerConvertedSalary() {
@@ -136,6 +148,7 @@ class ManagerData {
         for (id in idList) {
             listValuesInReal.add(arrayData[id].brazilMonthlySalary
                     .removeFormat()
+                    .replace(".", "")
                     .toDouble())
         }
         return listValuesInReal

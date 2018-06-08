@@ -6,7 +6,6 @@ import java.io.FileReader
 
 class ReadData {
 
-    private val list: MutableList<String> = mutableListOf()
     private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
     val managerData = ManagerData()
@@ -19,8 +18,8 @@ class ReadData {
         var line = read.readLine()
 
         while (line != null) {
-            list.add(line)
-            arrayData.add(Data(line))
+            val data = Data(line)
+            arrayData.add(data)
 
             managerData.idCountry(arrayData[cont], cont)
             managerData.contLanguage(arrayData[cont])
@@ -32,7 +31,11 @@ class ReadData {
 
         managerData.manager(arrayData)
 
+
         read.close()
+        WritData(arrayData).white()
         return arrayData
     }
+
+
 }

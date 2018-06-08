@@ -1,0 +1,5 @@
+package simplifiedclass
+
+class IDESimplified {
+
+}

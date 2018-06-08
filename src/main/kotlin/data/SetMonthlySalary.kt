@@ -9,7 +9,7 @@ class SetMonthlySalary(private val arrayData: ArrayList<Data>) {
 
     fun setAll() {
         for (it in arrayData) {
-            it.monthlySalary = format.format(it.convertedSalary)
+            it.monthlySalary = format.format(it.convertedSalary/12)
         }
     }
 }

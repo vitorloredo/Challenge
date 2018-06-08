@@ -9,7 +9,6 @@ class SetCountrySalary(private val arrayData: ArrayList<Data>,
 
     fun managerConvertedSalary() {
 
-
         for (it in idCountry) {
             val idCountryUnknown = arrayListOf<Int>()
             val idList = it.value
