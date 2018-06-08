@@ -1,5 +1,7 @@
 package data
 
+import extend.removeFormat
+
 class Data(value: String) {
     private val valueBase = -1.0
     private val respondent: String
@@ -147,7 +149,7 @@ class Data(value: String) {
 
         this.student = values[4]
         this.employment = values[5]
-        this.formalEducation = values[6]
+        this.formalEducation = values[6] //OUTRA TABELA
         this.undergradMajor = values[7]
         this.companySize = values[8]
         this.devType = values[9]
@@ -348,7 +350,7 @@ class Data(value: String) {
                 "$frameworkWorkedWith,$frameworkDesireNextYear,$iDE,$operatingSystem,$numberMonitors,$methodology,$versionControl,$checkInCode,$adBlocker,$adBlockerDisable,$adBlockerReasons,$adsAgreeDisagree1,$adsAgreeDisagree2,$adsAgreeDisagree3,$adsActions,$adsPriorities1,$adsPriorities2,$adsPriorities3,$adsPriorities4,$adsPriorities5,$adsPriorities6,$adsPriorities7," +
                 "$aIDangerous,$aIInteresting,$aIResponsible,$aIFuture,$ethicsChoice,$ethicsReport,$ethicsResponsible,$ethicalImplications,$stackOverflowRecommend,$stackOverflowVisit,$stackOverflowHasAccount,$stackOverflowParticipate,$stackOverflowJobs,$stackOverflowDevStory,$stackOverflowJobsRecommend,$stackOverflowConsiderMember,$hypotheticalTools1,$hypotheticalTools2," +
                 "$hypotheticalTools3,$hypotheticalTools4,$hypotheticalTools5,$wakeTime,$hoursComputer,$hoursOutside,$skipMeals,$ergonomicDevices,$exercise,$gender,$sexualOrientation,$educationParents,$raceEthnicity,$age,$dependents,$militaryUS,$surveyTooLong,$surveyEasy," +
-                "$monthlySalary,$brazilMonthlySalary"
+                "${monthlySalary.removeFormat()},${brazilMonthlySalary.removeFormat()}"
 
     }
 

@@ -1,5 +1,7 @@
 package data
 
+import extend.removeFormat
+
 class ManagerData {
 
     private val idCountry = hashMapOf<String, MutableList<Int>>()
@@ -133,9 +135,7 @@ class ManagerData {
 
         for (id in idList) {
             listValuesInReal.add(arrayData[id].brazilMonthlySalary
-                    .replace("R\$ ", "")
-                    .replace(".", "")
-                    .replace(",", "")
+                    .removeFormat()
                     .toDouble())
         }
         return listValuesInReal
