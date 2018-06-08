@@ -1,4 +1,6 @@
-package data
+package data.cont
+
+import data.Data
 
 class ContAllBrazilMonthlySalary (private val idCountry: HashMap<String, MutableList<Int>>) {
     fun cont(arrayData: ArrayList<Data>, contBrazilMonthlySalaryCountry: HashMap<String, List<String>>) {

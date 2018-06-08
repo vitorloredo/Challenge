@@ -1,4 +1,6 @@
-package data
+package data.cont
+
+import data.Data
 
 class ContInfo(private val contIDE: HashMap<String, Int>) {
     fun cont(data: Data) {

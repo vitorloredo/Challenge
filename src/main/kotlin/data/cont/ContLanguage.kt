@@ -1,4 +1,6 @@
-package data
+package data.cont
+
+import data.Data
 
 class ContLanguage(val contLanguage: HashMap<String, Int>) {
     fun cont(data: Data){

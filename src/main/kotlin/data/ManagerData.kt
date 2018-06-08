@@ -1,5 +1,7 @@
 package data
 
+import data.cont.*
+import data.set.*
 import extend.removeFormat
 import simplifiedclass.CountriesBrazilMonthly
 import simplifiedclass.IDE
@@ -35,7 +37,7 @@ class ManagerData {
     }
 
     fun contIDE(data: Data) {
-        ContInfo(contIDE).cont(data)
+       ContInfo(contIDE).cont(data)
     }
 
     fun contLanguage(data: Data) {
@@ -99,6 +101,5 @@ class ManagerData {
 
     fun createIDE() = IDE(contIDE)
     fun createLanguage() = Language(contLanguage)
-
 
 }

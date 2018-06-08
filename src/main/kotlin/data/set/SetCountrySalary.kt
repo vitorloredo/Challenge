@@ -1,5 +1,6 @@
-package data
+package data.set
 
+import data.Data
 import java.util.*
 
 class SetCountrySalary(private val arrayData: ArrayList<Data>,
