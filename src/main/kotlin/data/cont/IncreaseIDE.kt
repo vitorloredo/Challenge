@@ -2,7 +2,7 @@ package data.cont
 
 import data.Data
 
-class IncreaseIDE(private val contIDE: HashMap<String, Int>) {
+class IncreaseIDE(private val contIDE: HashMap<String, Double>) {
     fun cont(data: Data) {
         val iDE = data.iDE
         val notUnknown = notUnknown(iDE)
@@ -30,7 +30,7 @@ class IncreaseIDE(private val contIDE: HashMap<String, Int>) {
     }
 
     private fun addNotExistIDE(name: String) {
-        contIDE[name] = 1
+        contIDE[name] = 1.0
     }
 
     private fun extractList(str: String) = str.split(";")

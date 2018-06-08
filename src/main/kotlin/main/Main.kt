@@ -21,11 +21,16 @@ fun main(args: Array<String>) {
 
     managerGraphic.createHistograma(brazilBrazilMonthly, unitedBrazilMonthly, germanyBrazilMonthly, "Reais")
 
-    managerGraphic.createBarMonthly(managerData = managerData,title = "Media de salarios")
-
-
+    managerGraphic.createBarMonthly(managerData = managerData,title = "Media de salarios",strX =  "Paises", strY = "Reais")
 
     val ides = managerData.createIDE()
+
+    managerGraphic.creteBarIDE("IDE",ides,"IDE","Teste")
+
+
+
+
+
     val anguage = managerData.createLanguage()
 
 

@@ -10,7 +10,7 @@ class Data(value: String) {
     var country: String
     private val student: String
     private val employment: String
-    private val formalEducation: String
+    val formalEducation: String
     private val undergradMajor: String
     private val companySize: String
     private val devType: String
@@ -73,7 +73,7 @@ class Data(value: String) {
     private val languageDesireNextYear: String
     private val databaseWorkedWith: String
     private val databaseDesireNextYear: String
-    private val platformWorkedWith: String
+    val platformWorkedWith: String
     private val platformDesireNextYear: String
     private val frameworkWorkedWith: String
     private val frameworkDesireNextYear: String
@@ -149,7 +149,9 @@ class Data(value: String) {
 
         this.student = values[4]
         this.employment = values[5]
-        this.formalEducation = values[6] //OUTRA TABELA
+
+        this.formalEducation = values[6]
+
         this.undergradMajor = values[7]
         this.companySize = values[8]
         this.devType = values[9]
@@ -216,7 +218,9 @@ class Data(value: String) {
         this.languageDesireNextYear = values[66]
         this.databaseWorkedWith = values[67]
         this.databaseDesireNextYear = values[68]
-        this.platformWorkedWith = values[69]
+
+        this.platformWorkedWith = values[69] // getData
+
         this.platformDesireNextYear = values[70]
         this.frameworkWorkedWith = values[71]
         this.frameworkDesireNextYear = values[72]

@@ -8,20 +8,21 @@ import org.jfree.data.category.DefaultCategoryDataset
 import java.io.File
 import java.io.FileOutputStream
 
-class CreateBarSet(val title: String) {
+class CreateBarSet(private val title: String,
+                   private val strX: String,
+                   private val strY: String) {
 
-    private val histogramDataset = DefaultCategoryDataset()
-
+    private val defaultCategory = DefaultCategoryDataset()
 
     fun setValue(name: String, value: Double) {
-        histogramDataset.addValue(value, name, name)
+        defaultCategory.addValue(value, name, name)
     }
 
     fun factory() {
         val graf = ChartFactory.createBarChart(title,
-                "Paises",
-                "Reais",
-                histogramDataset,
+                strX,
+                strY,
+                defaultCategory,
                 PlotOrientation.VERTICAL,
                 true,
                 true,
@@ -32,8 +33,8 @@ class CreateBarSet(val title: String) {
 
     private fun create(graf: JFreeChart) {
         val baseName = File(".").canonicalPath
-        val file = FileOutputStream("$baseName\\src\\info\\Barra.png")
-        ChartUtilities.writeChartAsPNG(file, graf, 550, 400)
+        val file = FileOutputStream("$baseName\\src\\info\\$title.png")
+        ChartUtilities.writeChartAsPNG(file, graf, 2550, 2400)
         file.close()
     }
 

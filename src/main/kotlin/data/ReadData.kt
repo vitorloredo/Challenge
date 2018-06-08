@@ -8,7 +8,7 @@ class ReadData {
 
     private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
-    val managerData = ManagerData()
+    private val managerData = ManagerData()
 
     fun read(): ManagerData {
         val baseName = File(".").canonicalPath
@@ -25,12 +25,18 @@ class ReadData {
             managerData.increaseLanguage(arrayData[cont])
             managerData.increaseIDE(arrayData[cont])
 
+
+
             line = read.readLine()
             cont += 1
         }
 
-
         managerData.handleBrazilianSalary(arrayData)
+
+        println(managerData.getAverageSchool("United States",arrayData).amountBachelor())
+        println(managerData.getAverageSchool("United States",arrayData).amountMaster())
+        println(managerData.getAverageSchool("United States",arrayData).amountOther())
+
 
         WritData(arrayData).white()
 

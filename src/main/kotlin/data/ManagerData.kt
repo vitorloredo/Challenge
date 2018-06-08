@@ -1,8 +1,13 @@
 package data
 
-import data.cont.*
-import data.set.*
+import data.cont.GetAllBrazilMonthlySalary
+import data.cont.IncreaseIDE
+import data.cont.IncreaseLanguage
+import data.set.CountrySalary
+import data.set.CreateBrazilMonthlySalary
+import data.set.CreateMonthlySalary
 import extend.removeFormat
+import simplifiedclass.BrazilMonthlySalaryTeaching
 import simplifiedclass.CountriesBrazilMonthly
 import simplifiedclass.IDE
 import simplifiedclass.Language
@@ -11,8 +16,10 @@ class ManagerData {
 
     private val idCountry = hashMapOf<String, MutableList<Int>>()
     private val contLanguage = hashMapOf<String, Int>()
-    private val contIDE = hashMapOf<String, Int>()
+    private val contIDE = hashMapOf<String, Double>()
     private val allBrazilMonthlySalaryCountryAllCountries = hashMapOf<String, List<String>>()
+    val languageVsSystem = hashMapOf<String, HashMap<String, Double>>()
+
 
     fun setIdCountry(data: Data, position: Int) {
         val country = data.country
@@ -31,6 +38,10 @@ class ManagerData {
         }
     }
 
+    fun handleLanguageVsSystem(data: Data) {
+
+    }
+
     fun allCountry(): MutableSet<String> {
         return idCountry.keys
     }
@@ -45,7 +56,7 @@ class ManagerData {
 
     private fun contPeopleCountry(name: String) = idCountry[name]!!.size
 
-    private fun notUnknown(country: String) = country != "Unknown"
+    private fun notUnknown(str: String) = str != "Unknown"
 
     private fun addExistCountry(country: String, position: Int) {
         val listValue = idCountry.get(country)!!
@@ -95,10 +106,39 @@ class ManagerData {
                     .toDouble())
         }
 
-        return CountriesBrazilMonthly(listValuesInReal,countries,contPeopleCountry(countries))
+        return CountriesBrazilMonthly(listValuesInReal, countries, contPeopleCountry(countries))
     }
 
     fun createIDE() = IDE(contIDE)
     fun createLanguage() = Language(contLanguage)
+
+    fun getAverageSchool(str: String, arrayData: ArrayList<Data>): BrazilMonthlySalaryTeaching {
+        val brazilMonthlySalaryTeaching = BrazilMonthlySalaryTeaching()
+        val country = idCountry[str]!!
+        for (it in country) {
+
+            val brazilMonthlySalary = arrayData[it].brazilMonthlySalary
+
+            if (arrayData[it].formalEducation.contains("Bachelor", true)) {
+
+                brazilMonthlySalaryTeaching.salaryListBachelor.add(brazilMonthlySalary)
+
+            }
+
+            if (arrayData[it].formalEducation.contains("Master", true)) {
+
+                brazilMonthlySalaryTeaching.salaryListMaster.add(brazilMonthlySalary)
+
+            }
+
+            if (arrayData[it].formalEducation.contains("Other", true)) {
+
+                brazilMonthlySalaryTeaching.salaryListOther.add(brazilMonthlySalary)
+
+            }
+        }
+        return brazilMonthlySalaryTeaching
+    }
+
 
 }
