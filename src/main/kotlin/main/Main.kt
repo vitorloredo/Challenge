@@ -2,6 +2,7 @@ package main
 
 import data.ReadData
 import graphic.GraphicOne
+import graphic.GraphicTwo
 import graphic.ManagerGraphic
 
 
@@ -23,7 +24,7 @@ fun main(args: Array<String>) {
     val managerGraphic = ManagerGraphic()
 
     managerGraphic.createHistograma()
-
+    //GraphicTwo("")
 
     println(rt.freeMemory() - totalMemory)
 

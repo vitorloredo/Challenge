@@ -134,13 +134,13 @@ class Data(value: String) {
     private val surveyTooLong: String
     private val surveyEasy: String
 
-    var monthlySalary: String = valueBase.toString()
-    var brazilMonthlySalary: String = valueBase.toString()
+    var monthlySalary: String
+    var brazilMonthlySalary: String
 
     init {
         val values: List<String> = customSplit(value)
 
-        if(values.size !=129){
+        if (values.size != 129) {
             println(values.size)
         }
 
@@ -290,6 +290,18 @@ class Data(value: String) {
         this.militaryUS = values[126]
         this.surveyTooLong = values[127]
         this.surveyEasy = values[128]
+
+        monthlySalary = if (convertedSalary != -1.0) {
+            (convertedSalary / 12).toString()
+        } else {
+            valueBase.toString()
+        }
+
+        brazilMonthlySalary = if (monthlySalary.toDouble() != -1.0) {
+            (monthlySalary.toDouble() * 3.81).toString()
+        } else {
+            valueBase.toString()
+        }
 
     }
 

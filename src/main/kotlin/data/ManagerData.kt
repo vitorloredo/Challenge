@@ -48,11 +48,11 @@ class ManagerData {
     }
 
     fun increaseIDE(data: Data) {
-        IncreaseIDE(contIDE).cont(data)
+        //IncreaseIDE(contIDE).cont(data)
     }
 
     fun increaseLanguage(data: Data) {
-        IncreaseLanguage(contLanguage).cont(data)
+        //IncreaseLanguage(contLanguage).cont(data)
     }
 
     private fun contPeopleCountry(name: String) = idCountry[name]!!.size

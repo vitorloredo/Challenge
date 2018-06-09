@@ -7,7 +7,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
-class Quarrie {
+class Quarries {
 
     private val baseName = File(".").canonicalPath
     private val newBufferedReader = Files.newBufferedReader(Paths.get("$baseName\\src\\info\\base_de_respostas_final.csv"))
@@ -18,6 +18,19 @@ class Quarrie {
             .withFirstRecordAsHeader()
             .withTrim())
 
+
+    fun seatchOneString(what: String): ArrayList<String> {
+        val array = arrayListOf<String>()
+
+        for (it in csvParser) {
+            val value = it.get(what)
+            if (!array.contains(value)){
+                array.add(value)
+            }
+        }
+
+        return array
+    }
 
     fun searchTwoDouble(value1: String, value2: String, what: String): ArrayList<Double> {
         val array = arrayListOf<Double>()

@@ -1,5 +1,7 @@
 package data
 
+import graphic.GraphicOne
+import graphic.GraphicTwo
 import simplifiedclass.BrazilMonthlySalaryTeaching
 import java.io.BufferedReader
 import java.io.File
@@ -10,7 +12,10 @@ class ReadData {
     private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
-    val arrayBrazilMonthlySalaryTeaching = arrayListOf<BrazilMonthlySalaryTeaching>()
+//    val arrayBrazilMonthlySalaryTeaching = arrayListOf<BrazilMonthlySalaryTeaching>()
+
+    val graphicOne = GraphicOne("Brazil", "United States", "Germany","Reais")
+    val graphicTwo = GraphicTwo("Meia salarial")
 
     fun read(): ManagerData {
         val baseName = File(".").canonicalPath
@@ -25,6 +30,11 @@ class ReadData {
             arrayData.add(data)
 
             managerData.setIdCountry(arrayData[cont], cont)
+
+            graphicOne.getValue(arrayData[cont])
+
+            graphicTwo.setValue(arrayData[cont])
+
             //managerData.increaseLanguage(arrayData[cont])
             //managerData.increaseIDE(arrayData[cont])
 
@@ -33,6 +43,9 @@ class ReadData {
         }
 
         managerData.handleBrazilianSalary(arrayData)
+
+        graphicOne.setAllUnknown()
+        graphicTwo.setAllUnknown()
 
         //arrayBrazilMonthlySalaryTeaching.add(managerData.getAverageSchool("Brazil",arrayData))
         //arrayBrazilMonthlySalaryTeaching.add(managerData.getAverageSchool("United States",arrayData))

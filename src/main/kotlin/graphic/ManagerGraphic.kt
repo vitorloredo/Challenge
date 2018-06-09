@@ -1,7 +1,6 @@
 package graphic
 
 import data.ManagerData
-import simplifiedclass.CountriesBrazilMonthly
 import simplifiedclass.IDE
 
 
