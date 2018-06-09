@@ -10,9 +10,9 @@ class ManagerData {
 
     fun setIdCountry(data: Data, position: Int) {
         val country = data.country
-        val notUnknown = notUnknown(country)
+        val notUnknownCountry = notUnknown(country)
 
-        if (notUnknown) {
+        if (notUnknownCountry) {
             val containsKey = idCountry.containsKey(country)
 
             if (containsKey) {

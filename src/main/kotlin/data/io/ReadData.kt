@@ -2,10 +2,7 @@ package data.io
 
 import data.Data
 import data.ManagerData
-import graphic.catchdata.GraphicFive
-import graphic.catchdata.GraphicFour
-import graphic.catchdata.GraphicOne
-import graphic.catchdata.GraphicTwo
+import graphic.catchdata.*
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -18,6 +15,7 @@ class ReadData {
 
     val graphicOne = GraphicOne("Brazil", "United States", "Germany", "Reais")
     val graphicTwo = GraphicTwo("Meia salarial")
+    val graphicThree = GraphicThree("languagem vs IDE")
     val graphicFour = GraphicFour("IDE")
     val graphicFive = GraphicFive("Media de pessoas que fizeram ensino superior vs renda")
 
@@ -36,11 +34,9 @@ class ReadData {
             managerData.setIdCountry(arrayData[cont], cont)
 
             graphicOne.setValue(arrayData[cont])
-
             graphicTwo.setValue(arrayData[cont])
-
+            graphicThree.setValue(arrayData[cont])
             graphicFour.setValue(arrayData[cont])
-
             graphicFive.setValues(arrayData[cont])
 
             line = read.readLine()
