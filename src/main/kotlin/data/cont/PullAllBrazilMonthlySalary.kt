@@ -2,7 +2,7 @@ package data.cont
 
 import data.Data
 
-class GetAllBrazilMonthlySalary (private val idCountry: HashMap<String, MutableList<Int>>) {
+class PullAllBrazilMonthlySalary (private val idCountry: HashMap<String, MutableList<Int>>) {
     fun getAll(arrayData: ArrayList<Data>, contBrazilMonthlySalaryCountry: HashMap<String, List<String>>) {
         val allCountry = allCountry()
         for (name in allCountry) {

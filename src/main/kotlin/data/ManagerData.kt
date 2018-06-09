@@ -1,6 +1,6 @@
 package data
 
-import data.cont.GetAllBrazilMonthlySalary
+import data.cont.PullAllBrazilMonthlySalary
 import data.cont.IncreaseIDE
 import data.cont.IncreaseLanguage
 import data.set.CountrySalary
@@ -60,14 +60,12 @@ class ManagerData {
 
     private fun addExistCountry(country: String, position: Int) {
         val listValue = idCountry.get(country)!!
-
         listValue.add(position)
         idCountry[country] = listValue
     }
 
     private fun addNotExistCountry(country: String, value: Int) {
         val newMutableList = mutableListOf<Int>()
-
         newMutableList.add(value)
         idCountry[country] = newMutableList
     }
@@ -76,11 +74,11 @@ class ManagerData {
         countrySalaryUnknown(arrayData)
         createMonthlySalary(arrayData)
         createBrazilMonthlySalary(arrayData)
-        getAllBrazilMonthlySalary(arrayData)
+        pullAllBrazilMonthlySalary(arrayData)
     }
 
-    private fun getAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
-        GetAllBrazilMonthlySalary(idCountry).getAll(arrayData, allBrazilMonthlySalaryCountryAllCountries)
+    private fun pullAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
+        PullAllBrazilMonthlySalary(idCountry).getAll(arrayData, allBrazilMonthlySalaryCountryAllCountries)
     }
 
     private fun countrySalaryUnknown(arrayData: ArrayList<Data>) {
@@ -113,32 +111,22 @@ class ManagerData {
     fun createLanguage() = Language(contLanguage)
 
     fun getAverageSchool(str: String, arrayData: ArrayList<Data>): BrazilMonthlySalaryTeaching {
-        val brazilMonthlySalaryTeaching = BrazilMonthlySalaryTeaching()
+        val brazilMonthlySalaryTeaching = BrazilMonthlySalaryTeaching(str)
         val country = idCountry[str]!!
         for (it in country) {
-
             val brazilMonthlySalary = arrayData[it].brazilMonthlySalary
-
             if (arrayData[it].formalEducation.contains("Bachelor", true)) {
-
                 brazilMonthlySalaryTeaching.salaryListBachelor.add(brazilMonthlySalary)
-
             }
 
             if (arrayData[it].formalEducation.contains("Master", true)) {
-
                 brazilMonthlySalaryTeaching.salaryListMaster.add(brazilMonthlySalary)
-
             }
 
             if (arrayData[it].formalEducation.contains("Other", true)) {
-
                 brazilMonthlySalaryTeaching.salaryListOther.add(brazilMonthlySalary)
-
             }
         }
         return brazilMonthlySalaryTeaching
     }
-
-
 }

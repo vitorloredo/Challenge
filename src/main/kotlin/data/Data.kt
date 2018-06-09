@@ -140,6 +140,10 @@ class Data(value: String) {
     init {
         val values: List<String> = customSplit(value)
 
+        if(values.size !=129){
+            println(values.size)
+        }
+
         this.respondent = values[0]
 
         this.hobby = translate(values[1])
@@ -157,10 +161,14 @@ class Data(value: String) {
         this.devType = values[9]
         this.yearsCoding = values[10]
         this.yearsCodingProf = values[11]
-        this.jobSatisfaction = values[12]
+
+        this.jobSatisfaction = values[12] //Tabela de sastifcaa
+
         this.careerSatisfaction = values[13]
         this.hopeFiveYears = values[14]
-        this.jobSearchStatus = values[15]
+
+        this.jobSearchStatus = values[15]//Tabela de sastifcaa
+
         this.lastNewJob = values[16]
         this.assessJob1 = values[17]
         this.assessJob2 = values[18]
@@ -293,7 +301,7 @@ class Data(value: String) {
         var word = ""
         var notText = true
 
-        val valueFinal = "$value@"
+        val valueFinal = "$value,"
 
         for (letter in valueFinal) {
 
@@ -301,12 +309,12 @@ class Data(value: String) {
                 notText = notText != true
             }
 
-            if ((letter == ',' || letter == '@') && notText) {
+            if ((letter == ',') && notText) {
                 contFinal = cont
 
                 for (i in contInit..contFinal) {
 
-                    if (valueFinal[i] != ',' && valueFinal[i] != '@') {
+                    if (valueFinal[i] != ',') {
                         word += valueFinal[i]
                     }
                 }
@@ -335,12 +343,6 @@ class Data(value: String) {
     }
 
     private fun translate(str: String): String {
-        if (str.equals("Hobby", true)) {
-            return "Hobby"
-        } else if (str.equals("OpenSource", true)) {
-            return "OpenSource"
-        }
-
         if (str.equals("No", true)) {
             return "Nao"
         }
@@ -349,8 +351,9 @@ class Data(value: String) {
 
     override fun toString(): String {
         return "$respondent,$hobby,$openSource,$country,$student,$employment,$formalEducation,$undergradMajor,$companySize,$devType,$yearsCoding,$yearsCodingProf,$jobSatisfaction,$careerSatisfaction,$hopeFiveYears,$jobSearchStatus,$lastNewJob,$assessJob1,$assessJob2,$assessJob3,$assessJob4,$assessJob5,$assessJob6,$assessJob7,$assessJob8,$assessJob9,$assessJob10," +
-                "$assessBenefits1,$assessBenefits2,$assessBenefits3,$assessBenefits4,$assessBenefits5,$assessBenefits6,$assessBenefits7,$assessBenefits8,$assessBenefits9,$assessBenefits10,$assessBenefits11,$jobContactPriorities1,$jobContactPriorities2,$jobContactPriorities3,$jobContactPriorities4,$jobContactPriorities5,$jobEmailPriorities6,$jobEmailPriorities7," +
-                "$updateCV,$currency,$salary,$salaryType,$convertedSalary,$currencySymbol,$communicationTools,$timeFullyProductive,$educationTypes,$selfTaughtTypes,$timeAfterBootcamp,$hackathonReasons,$agreeDisagree1,$agreeDisagree2,$agreeDisagree1,$languageWorkedWith,$languageDesireNextYear,$databaseWorkedWith,$databaseDesireNextYear,$platformWorkedWith,$platformDesireNextYear," +
+                "$assessBenefits1,$assessBenefits2,$assessBenefits3,$assessBenefits4,$assessBenefits5,$assessBenefits6,$assessBenefits7,$assessBenefits8,$assessBenefits9,$assessBenefits10,$assessBenefits11,$jobContactPriorities1,$jobContactPriorities2,$jobContactPriorities3,$jobContactPriorities4,$jobContactPriorities5," +
+                "$jobEmailPriorities1,$jobEmailPriorities2,$jobEmailPriorities3,$jobEmailPriorities4,$jobEmailPriorities5,$jobEmailPriorities6,$jobEmailPriorities7," +
+                "$updateCV,$currency,$salary,$salaryType,$convertedSalary,$currencySymbol,$communicationTools,$timeFullyProductive,$educationTypes,$selfTaughtTypes,$timeAfterBootcamp,$hackathonReasons,$agreeDisagree1,$agreeDisagree2,$agreeDisagree3,$languageWorkedWith,$languageDesireNextYear,$databaseWorkedWith,$databaseDesireNextYear,$platformWorkedWith,$platformDesireNextYear," +
                 "$frameworkWorkedWith,$frameworkDesireNextYear,$iDE,$operatingSystem,$numberMonitors,$methodology,$versionControl,$checkInCode,$adBlocker,$adBlockerDisable,$adBlockerReasons,$adsAgreeDisagree1,$adsAgreeDisagree2,$adsAgreeDisagree3,$adsActions,$adsPriorities1,$adsPriorities2,$adsPriorities3,$adsPriorities4,$adsPriorities5,$adsPriorities6,$adsPriorities7," +
                 "$aIDangerous,$aIInteresting,$aIResponsible,$aIFuture,$ethicsChoice,$ethicsReport,$ethicsResponsible,$ethicalImplications,$stackOverflowRecommend,$stackOverflowVisit,$stackOverflowHasAccount,$stackOverflowParticipate,$stackOverflowJobs,$stackOverflowDevStory,$stackOverflowJobsRecommend,$stackOverflowConsiderMember,$hypotheticalTools1,$hypotheticalTools2," +
                 "$hypotheticalTools3,$hypotheticalTools4,$hypotheticalTools5,$wakeTime,$hoursComputer,$hoursOutside,$skipMeals,$ergonomicDevices,$exercise,$gender,$sexualOrientation,$educationParents,$raceEthnicity,$age,$dependents,$militaryUS,$surveyTooLong,$surveyEasy," +

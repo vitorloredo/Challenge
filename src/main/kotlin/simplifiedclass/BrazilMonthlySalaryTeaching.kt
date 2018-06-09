@@ -1,9 +1,8 @@
 package simplifiedclass
 
 import extend.convertsStringFormatToDouble
-import extend.removeFormat
 
-class BrazilMonthlySalaryTeaching {
+class BrazilMonthlySalaryTeaching(val str: String) {
     val salaryListBachelor = arrayListOf<String>()
     val salaryListMaster = arrayListOf<String>()
     val salaryListOther = arrayListOf<String>()
