@@ -7,20 +7,8 @@ import simplifiedclass.IDE
 
 class ManagerGraphic {
 
-    fun createHistograma(brazilMonthly: CountriesBrazilMonthly,
-                         brazilMonthly2: CountriesBrazilMonthly,
-                         brazilMonthly3: CountriesBrazilMonthly,
-                         title: String) {
-        val histogram = CreateHistogram(title)
-
-        histogram.setValue(brazilMonthly.value, brazilMonthly.country)
-
-        histogram.setValue(brazilMonthly2.value, brazilMonthly2.country)
-
-        histogram.setValue(brazilMonthly3.value, brazilMonthly3.country)
-
-        histogram.factory()
-
+    fun createHistograma() {
+        GraphicOne("Brazil", "United States", "Germany","Reais")
     }
 
     fun creteBarIDE(title: String,ide: IDE,strX: String,strY: String){

@@ -6,6 +6,7 @@ import data.cont.IncreaseLanguage
 import data.set.CountrySalary
 import data.set.CreateBrazilMonthlySalary
 import data.set.CreateMonthlySalary
+import extend.convertsStringFormatToDouble
 import extend.removeFormat
 import simplifiedclass.BrazilMonthlySalaryTeaching
 import simplifiedclass.CountriesBrazilMonthly
@@ -98,10 +99,7 @@ class ManagerData {
 
         val listValuesInReal = arrayListOf<Double>()
         for (id in listMonthlySalary) {
-            listValuesInReal.add(id
-                    .removeFormat()
-                    .replace(".", "")
-                    .toDouble())
+            listValuesInReal.add(id.convertsStringFormatToDouble())
         }
 
         return CountriesBrazilMonthly(listValuesInReal, countries, contPeopleCountry(countries))

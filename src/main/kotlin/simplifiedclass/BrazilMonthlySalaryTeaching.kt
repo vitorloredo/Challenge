@@ -10,7 +10,7 @@ class BrazilMonthlySalaryTeaching(val str: String) {
     fun amountBachelor (): Double {
         var cont = 0.0
         for (it in salaryListBachelor) {
-            cont += it.convertsStringFormatToDouble() / 100
+            cont += it.convertsStringFormatToDouble()
         }
         return cont / notZero(salaryListBachelor.size)
     }
@@ -18,7 +18,7 @@ class BrazilMonthlySalaryTeaching(val str: String) {
     fun amountMaster (): Double {
         var cont = 0.0
         for (it in salaryListMaster) {
-            cont += it.convertsStringFormatToDouble() / 100
+            cont += it.convertsStringFormatToDouble()
         }
         return cont / notZero(salaryListMaster.size)
     }
@@ -26,7 +26,7 @@ class BrazilMonthlySalaryTeaching(val str: String) {
     fun amountOther (): Double {
         var cont = 0.0
         for (it in salaryListOther) {
-            cont += it.convertsStringFormatToDouble() / 100
+            cont += it.convertsStringFormatToDouble()
         }
         return cont / notZero(salaryListOther.size)
     }

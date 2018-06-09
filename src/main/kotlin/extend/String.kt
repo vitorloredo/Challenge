@@ -8,5 +8,5 @@ fun String.removeFormat(): String {
 //converts
 
 fun String.convertsStringFormatToDouble(): Double{
-    return this.removeFormat().replace(".", "").toDouble()
+    return this.removeFormat().replace(".", "").toDouble() / 100
 }
