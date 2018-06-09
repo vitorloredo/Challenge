@@ -16,7 +16,7 @@ class CountrySalary(private val arrayData: ArrayList<Data>,
             val idListSize = idList.size
             var allValuesSalaryCountry = 0.0
 
-            allValuesSalaryCountry = createAverageCountry(idList, arrayData, allValuesSalaryCountry, idCountryUnknown)
+            allValuesSalaryCountry = createAverageCountryAndSearchUnknown(idList, arrayData, allValuesSalaryCountry, idCountryUnknown)
 
             val peopleHaveSalaryCountry = notZero(idListSize - idCountryUnknown.size)
             val averageValues = allValuesSalaryCountry / peopleHaveSalaryCountry
@@ -32,8 +32,9 @@ class CountrySalary(private val arrayData: ArrayList<Data>,
         return people
     }
 
-    private fun createAverageCountry(idList: MutableList<Int>, arrayData: ArrayList<Data>, allValuesSalaryCountry: Double,
-                                     idCountryUnknown: ArrayList<Int>): Double {
+    private fun createAverageCountryAndSearchUnknown(idList: MutableList<Int>, arrayData: ArrayList<Data>,
+                                                     allValuesSalaryCountry: Double,
+                                                     idCountryUnknown: ArrayList<Int>): Double {
         var allValuesCont = allValuesSalaryCountry
         for (id in idList) {
             val convertedSalaryCountry = arrayData[id].convertedSalary

@@ -1,26 +1,13 @@
 package data
 
-import data.cont.PullAllBrazilMonthlySalary
-import data.cont.IncreaseIDE
-import data.cont.IncreaseLanguage
 import data.set.CountrySalary
 import data.set.CreateBrazilMonthlySalary
 import data.set.CreateMonthlySalary
-import extend.convertsStringFormatToDouble
-import extend.removeFormat
 import simplifiedclass.BrazilMonthlySalaryTeaching
-import simplifiedclass.CountriesBrazilMonthly
-import simplifiedclass.IDE
-import simplifiedclass.Language
 
 class ManagerData {
 
     private val idCountry = hashMapOf<String, MutableList<Int>>()
-    private val contLanguage = hashMapOf<String, Int>()
-    private val contIDE = hashMapOf<String, Double>()
-    private val allBrazilMonthlySalaryCountryAllCountries = hashMapOf<String, List<String>>()
-    val languageVsSystem = hashMapOf<String, HashMap<String, Double>>()
-
 
     fun setIdCountry(data: Data, position: Int) {
         val country = data.country
@@ -38,24 +25,6 @@ class ManagerData {
             data.convertedSalary = 0.0
         }
     }
-
-    fun handleLanguageVsSystem(data: Data) {
-
-    }
-
-    fun allCountry(): MutableSet<String> {
-        return idCountry.keys
-    }
-
-    fun increaseIDE(data: Data) {
-        //IncreaseIDE(contIDE).cont(data)
-    }
-
-    fun increaseLanguage(data: Data) {
-        //IncreaseLanguage(contLanguage).cont(data)
-    }
-
-    private fun contPeopleCountry(name: String) = idCountry[name]!!.size
 
     private fun notUnknown(str: String) = str != "Unknown"
 
@@ -75,11 +44,6 @@ class ManagerData {
         countrySalaryUnknown(arrayData)
         createMonthlySalary(arrayData)
         createBrazilMonthlySalary(arrayData)
-        pullAllBrazilMonthlySalary(arrayData)
-    }
-
-    private fun pullAllBrazilMonthlySalary(arrayData: ArrayList<Data>) {
-        PullAllBrazilMonthlySalary(idCountry).getAll(arrayData, allBrazilMonthlySalaryCountryAllCountries)
     }
 
     private fun countrySalaryUnknown(arrayData: ArrayList<Data>) {
@@ -93,20 +57,6 @@ class ManagerData {
     private fun createBrazilMonthlySalary(arrayData: ArrayList<Data>) {
         CreateBrazilMonthlySalary(arrayData).setAll()
     }
-
-    fun getCountriesBrazilMonthlyAnyCountry(countries: String): CountriesBrazilMonthly {
-        val listMonthlySalary = allBrazilMonthlySalaryCountryAllCountries[countries]!!
-
-        val listValuesInReal = arrayListOf<Double>()
-        for (id in listMonthlySalary) {
-            listValuesInReal.add(id.convertsStringFormatToDouble())
-        }
-
-        return CountriesBrazilMonthly(listValuesInReal, countries, contPeopleCountry(countries))
-    }
-
-    fun createIDE() = IDE(contIDE)
-    fun createLanguage() = Language(contLanguage)
 
     fun getAverageSchool(str: String, arrayData: ArrayList<Data>): BrazilMonthlySalaryTeaching {
         val brazilMonthlySalaryTeaching = BrazilMonthlySalaryTeaching(str)

@@ -2,7 +2,6 @@ package data
 
 import graphic.GraphicOne
 import graphic.GraphicTwo
-import simplifiedclass.BrazilMonthlySalaryTeaching
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -12,9 +11,9 @@ class ReadData {
     private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
-//    val arrayBrazilMonthlySalaryTeaching = arrayListOf<BrazilMonthlySalaryTeaching>()
 
-    val graphicOne = GraphicOne("Brazil", "United States", "Germany","Reais")
+
+    val graphicOne = GraphicOne("Brazil", "United States", "Germany", "Reais")
     val graphicTwo = GraphicTwo("Meia salarial")
 
     fun read(): ManagerData {
@@ -35,8 +34,7 @@ class ReadData {
 
             graphicTwo.setValue(arrayData[cont])
 
-            //managerData.increaseLanguage(arrayData[cont])
-            //managerData.increaseIDE(arrayData[cont])
+
 
             line = read.readLine()
             cont += 1
@@ -47,9 +45,8 @@ class ReadData {
         graphicOne.setAllUnknown()
         graphicTwo.setAllUnknown()
 
-        //arrayBrazilMonthlySalaryTeaching.add(managerData.getAverageSchool("Brazil",arrayData))
-        //arrayBrazilMonthlySalaryTeaching.add(managerData.getAverageSchool("United States",arrayData))
-        //arrayBrazilMonthlySalaryTeaching.add(managerData.getAverageSchool("Germany",arrayData))
+        //DEpois da um create Graphf
+
 
         WritData(arrayData).white()
 

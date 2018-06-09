@@ -11,11 +11,10 @@ class GraphicOne(val country1: String,
     val graphicOneData2 = GraphicOneData(country2)
     val graphicOneData3 = GraphicOneData(country3)
 
-    fun setAllUnknown(){
+    fun setAllUnknown() {
         graphicOneData1.completeUnknown()
         graphicOneData2.completeUnknown()
         graphicOneData3.completeUnknown()
-
     }
 
     fun getValue(data: Data) {
@@ -36,25 +35,23 @@ class GraphicOne(val country1: String,
 
 }
 
-class GraphicOneData(val title: String){
+class GraphicOneData(val title: String) {
     val salaryTotal = arrayListOf<Double>()
     private val salaryUnknown = arrayListOf<Double>()
     var contPerson = salaryTotal.size
 
-
-
-    fun setSalary(double: Double){
+    fun setSalary(double: Double) {
         val valueUnknown = -1.0
-        if (double == valueUnknown){
+        if (double == valueUnknown) {
             salaryUnknown.add(0.0)
         } else {
             salaryTotal.add(double)
         }
     }
 
-    fun completeUnknown(){
+    fun completeUnknown() {
         val amount = amount()
-        for (it in salaryUnknown){
+        for (it in salaryUnknown) {
             salaryTotal.add(amount)
         }
         salaryUnknown.clear()
@@ -67,6 +64,4 @@ class GraphicOneData(val title: String){
         }
         return cont / salaryTotal.size
     }
-
-
 }

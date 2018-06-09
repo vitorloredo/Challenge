@@ -14,18 +14,15 @@ class WritData(private val arrayData: ArrayList<Data>) {
                 "MonthlySalary", "BrazilMonthlySalary")
 
         white.write(line.toString()
-                .replace("[","")
-                .replace("]",""))
+                .replace("[", "")
+                .replace("]", ""))
 
         white.newLine()
-
 
         for (it in arrayData) {
             white.write(it.toString())
             white.newLine()
         }
         white.close()
-
-
     }
 }
