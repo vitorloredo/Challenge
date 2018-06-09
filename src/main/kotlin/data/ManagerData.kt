@@ -3,7 +3,6 @@ package data
 import data.set.CountrySalary
 import data.set.CreateBrazilMonthlySalary
 import data.set.CreateMonthlySalary
-import simplifiedclass.BrazilMonthlySalaryTeaching
 
 class ManagerData {
 
@@ -56,25 +55,5 @@ class ManagerData {
 
     private fun createBrazilMonthlySalary(arrayData: ArrayList<Data>) {
         CreateBrazilMonthlySalary(arrayData).setAll()
-    }
-
-    fun getAverageSchool(str: String, arrayData: ArrayList<Data>): BrazilMonthlySalaryTeaching {
-        val brazilMonthlySalaryTeaching = BrazilMonthlySalaryTeaching(str)
-        val country = idCountry[str]!!
-        for (it in country) {
-            val brazilMonthlySalary = arrayData[it].brazilMonthlySalary
-            if (arrayData[it].formalEducation.contains("Bachelor", true)) {
-                brazilMonthlySalaryTeaching.salaryListBachelor.add(brazilMonthlySalary)
-            }
-
-            if (arrayData[it].formalEducation.contains("Master", true)) {
-                brazilMonthlySalaryTeaching.salaryListMaster.add(brazilMonthlySalary)
-            }
-
-            if (arrayData[it].formalEducation.contains("Other", true)) {
-                brazilMonthlySalaryTeaching.salaryListOther.add(brazilMonthlySalary)
-            }
-        }
-        return brazilMonthlySalaryTeaching
     }
 }

@@ -5,8 +5,7 @@ fun String.removeFormat(): String {
             .replace("$", "")
             .replace(",", "")
 }
-//converts
 
-fun String.convertsStringFormatToDouble(): Double{
+fun String.convertsStringFormatToDouble(): Double {
     return this.removeFormat().replace(".", "").toDouble() / 100
 }

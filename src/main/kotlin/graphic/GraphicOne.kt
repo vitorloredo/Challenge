@@ -17,7 +17,7 @@ class GraphicOne(val country1: String,
         graphicOneData3.completeUnknown()
     }
 
-    fun getValue(data: Data) {
+    fun setValue(data: Data) {
         val country = data.country
         val brazilMonthlySalary = data.brazilMonthlySalary.toDouble()
         when (country) {
@@ -57,11 +57,7 @@ class GraphicOneData(val title: String) {
         salaryUnknown.clear()
     }
 
-    fun amount(): Double {
-        var cont = 0.0
-        for (it in salaryTotal) {
-            cont += it
-        }
-        return cont / salaryTotal.size
-    }
+
+    fun amount() = salaryTotal.average()
+
 }

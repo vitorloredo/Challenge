@@ -9,17 +9,17 @@ class GraphicTwo(val title: String) {
 
     private fun counted(string: String) = arrayCountry.contains(string)
 
-    fun setAllUnknown(){
-        for(it in arrayGraphicTwo){
+    fun setAllUnknown() {
+        for (it in arrayGraphicTwo) {
             it.completeUnknown()
         }
     }
 
-    fun setValue(data: Data){
+    fun setValue(data: Data) {
         val country = data.country
         val brazilMonthlySalary = data.brazilMonthlySalary.toDouble()
 
-        if (counted(country)){
+        if (counted(country)) {
             val indexOf = arrayCountry.indexOf(country)
             arrayGraphicTwo[indexOf].setSalary(brazilMonthlySalary)
         } else {
@@ -33,33 +33,27 @@ class GraphicTwo(val title: String) {
 
 }
 
-class GraphicTwoDate(val title: String){
+class GraphicTwoDate(val title: String) {
     val salaryTotal = arrayListOf<Double>()
     private val salaryUnknown = arrayListOf<Double>()
     var contPerson = salaryTotal.size
 
-    fun setSalary(double: Double){
+    fun setSalary(double: Double) {
         val valueUnknown = -1.0
-        if (double == valueUnknown){
+        if (double == valueUnknown) {
             salaryUnknown.add(0.0)
         } else {
             salaryTotal.add(double)
         }
     }
 
-    fun completeUnknown(){
+    fun completeUnknown() {
         val amount = amount()
-        for (it in salaryUnknown){
+        for (it in salaryUnknown) {
             salaryTotal.add(amount)
         }
         salaryUnknown.clear()
     }
 
-    fun amount(): Double {
-        var cont = 0.0
-        for (it in salaryTotal) {
-            cont += it
-        }
-        return cont / salaryTotal.size
-    }
+    fun amount() = salaryTotal.average()
 }
