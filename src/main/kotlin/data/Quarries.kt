@@ -1,4 +1,4 @@
-package graphic
+package data
 
 import extend.convertsStringFormatToDouble
 import org.apache.commons.csv.CSVFormat

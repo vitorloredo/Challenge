@@ -1,8 +1,8 @@
 package data
 
-import data.set.CountrySalary
-import data.set.CreateBrazilMonthlySalary
-import data.set.CreateMonthlySalary
+import data.handle.CountrySalary
+import data.handle.CreateBrazilMonthlySalary
+import data.handle.CreateMonthlySalary
 
 class ManagerData {
 

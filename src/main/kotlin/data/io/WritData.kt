@@ -1,5 +1,6 @@
-package data
+package data.io
 
+import data.Data
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter

@@ -1,8 +1,6 @@
 package main
 
-import data.ReadData
-import graphic.GraphicOne
-import graphic.GraphicTwo
+import data.io.ReadData
 import graphic.ManagerGraphic
 
 

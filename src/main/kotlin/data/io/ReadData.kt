@@ -1,9 +1,11 @@
-package data
+package data.io
 
-import graphic.GraphicFive
-import graphic.GraphicFour
-import graphic.GraphicOne
-import graphic.GraphicTwo
+import data.Data
+import data.ManagerData
+import graphic.catchdata.GraphicFive
+import graphic.catchdata.GraphicFour
+import graphic.catchdata.GraphicOne
+import graphic.catchdata.GraphicTwo
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -13,7 +15,6 @@ class ReadData {
     private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
-
 
     val graphicOne = GraphicOne("Brazil", "United States", "Germany", "Reais")
     val graphicTwo = GraphicTwo("Meia salarial")

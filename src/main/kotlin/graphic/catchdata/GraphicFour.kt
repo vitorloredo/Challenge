@@ -1,10 +1,10 @@
-package graphic
+package graphic.catchdata
 
 import data.Data
 
 class GraphicFour(val title: String) {
 
-    val contIDE = hashMapOf<String,Double>()
+    private val contIDE = hashMapOf<String,Double>()
 
     fun setValue(data: Data) {
         val iDE = data.iDE

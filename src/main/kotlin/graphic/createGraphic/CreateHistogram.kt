@@ -1,4 +1,4 @@
-package graphic
+package graphic.createGraphic
 
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartUtilities
