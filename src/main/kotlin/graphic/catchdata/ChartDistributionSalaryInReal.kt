@@ -1,7 +1,6 @@
-package graphic.model
+package graphic.catchdata
 
-import data.CountrySalaryMedianInReal
-import graphic.catchdata.ChartMedianSalaryInReal
+import graphic.model.CountrySalaryMedianInReal
 import graphic.createGraphic.CreateHistogram
 
 class ChartDistributionSalaryInReal {
@@ -17,7 +16,7 @@ class ChartDistributionSalaryInReal {
     fun generateChart() {
         val createHistogram = CreateHistogram(title)
         salariesDistrubuition.forEach { it ->
-            createHistogram.setValue(it.removeInvalidNumbers.toDoubleArray(), it.country)
+            createHistogram.setValue(it.removeInvalidNumbers().toDoubleArray(), it.country)
         }
         createHistogram.factory()
     }

@@ -1,26 +1,26 @@
 package graphic.catchdata
 
 import data.Data
+import extend.isUnknown
 import graphic.createGraphic.CreateBarSet
 
-class ChartFour(val title: String) {
+class ChartIDE() {
+    val title = "IDE"
+    private val contIDE = hashMapOf<String, Double>()
 
-    private val contIDE = hashMapOf<String,Double>()
-    private val createBarSet = CreateBarSet(title,"IDE","Quantidade")
-
-    fun createGraphic() {
-        for (it in contIDE.keys){
-            createBarSet.setValue(it,contIDE[it]!!)
+    fun generateChart() {
+        val createBarSet = CreateBarSet(title, "IDE", "Quantidade")
+        for (it in contIDE.keys) {
+            createBarSet.setValue(it, contIDE[it]!!)
         }
 
         createBarSet.factory()
     }
 
-    fun setValue(data: Data) {
+    fun insertNewData(data: Data) {
         val iDE = data.iDE
-        val notUnknown = notUnknown(iDE)
 
-        if (notUnknown) {
+        if (!iDE.isUnknown()) {
             val iDEList = extractList(iDE)
 
             for (name in iDEList) {
@@ -47,8 +47,5 @@ class ChartFour(val title: String) {
     }
 
     private fun extractList(str: String) = str.split(";")
-
-    private fun notUnknown(country: String) = country != "Unknown"
-
 
 }

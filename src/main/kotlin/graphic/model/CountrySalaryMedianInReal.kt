@@ -1,4 +1,4 @@
-package data
+package graphic.model
 
 data class CountrySalaryMedianInReal(val country: String, val salaryInReal: ArrayList<Double>) {
     override fun equals(other: Any?): Boolean {
@@ -6,8 +6,8 @@ data class CountrySalaryMedianInReal(val country: String, val salaryInReal: Arra
         return this.country == another.country
     }
 
-    fun median() = removeInvalidNumbers.average()
+    fun median() = removeInvalidNumbers().average()
 
-    val removeInvalidNumbers = salaryInReal.filter { it != -1.0 }
+    fun removeInvalidNumbers() = salaryInReal.filter { it != -1.0 }
 
 }

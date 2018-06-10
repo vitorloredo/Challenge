@@ -1,6 +1,6 @@
 package graphic.catchdata
 
-import data.CountrySalaryMedianInReal
+import graphic.model.CountrySalaryMedianInReal
 import data.Data
 import extend.isUnknown
 import graphic.createGraphic.CreateBarSet

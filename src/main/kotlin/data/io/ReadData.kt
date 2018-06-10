@@ -3,12 +3,10 @@ package data.io
 import data.Data
 import data.ManagerData
 import graphic.catchdata.*
-import graphic.model.ChartDistributionSalaryInReal
+import graphic.createGraphic.CSVPercentageFutureStudy
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
-
-
 
 class ReadData {
 
@@ -16,16 +14,20 @@ class ReadData {
     private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
 
-    private val chartThree = ChartLanguagesPlatform("languagem vs IDE")
-    private val chartFour = ChartFour("IDE")
-    private val chartFive = ChartFive("Media de pessoas que fizeram ensino superior vs renda")
+    private val chartLanguagesVSPlatform = ChartLanguagesVSPlatform()
+    private val chartIDE = ChartIDE()
+    private val higherEducation = HigherEducation()
     private val chartMedianSalaryInReal = ChartMedianSalaryInReal()
 
-    fun read(): ManagerData {
+    private val languageStudy = CSVPercentageFutureStudy("Novo estudo de linguagem")
+    private val platformStudy = CSVPercentageFutureStudy("Novo estudo de plataforma")
+    private val frameworkStudy = CSVPercentageFutureStudy("Novo estudo de Framework")
+    private val dataBaseStudy = CSVPercentageFutureStudy("Novo estudo Database")
+
+    fun read() {
         val baseName = File(".").canonicalPath
         val localFileName = FileReader("$baseName\\src\\info\\base_de_respostas_10k_amostra.csv")
         val read = BufferedReader(localFileName)
-
 
         var line = read.readLine()
         line = read.readLine()
@@ -36,9 +38,15 @@ class ReadData {
 
             managerData.setIdCountry(data, cont)
 
-//            chartThree.setValue(model)
-//            chartFour.setValue(model)
-//            chartFive.setValues(model)
+            higherEducation.insertNewData(data)
+            chartIDE.insertNewData(data)
+            chartLanguagesVSPlatform.setValue(data) //Not fac nao funciona direito
+
+            languageStudy.insertNewData(data.languageWorkedWith, data.languageDesireNextYear)
+            platformStudy.insertNewData(data.platformWorkedWith, data.platformDesireNextYear)
+            frameworkStudy.insertNewData(data.frameworkWorkedWith, data.frameworkDesireNextYear)
+            dataBaseStudy.insertNewData(data.databaseWorkedWith, data.databaseDesireNextYear)
+
 
             chartMedianSalaryInReal.insertNewData(data)
 
@@ -46,37 +54,31 @@ class ReadData {
             cont += 1
         }
 
+        read.close()
         managerData.handleBrazilianSalary(arrayData)
         WritData(arrayData).white()
         arrayData.clear()
 
         chartMedianSalaryInReal.generateChart()
+
         val chartDistributionSalaryInReal = ChartDistributionSalaryInReal()
         chartDistributionSalaryInReal.insertNewData(chartMedianSalaryInReal)
         chartDistributionSalaryInReal.generateChart()
 
+        higherEducation.insertAverage(chartMedianSalaryInReal)
+        higherEducation.generateChart()
 
-//        chartFive.setAllUnknown()
-//
-//
-
-//        //NAO FUNCIONA
-//        chartThree.createGraphic()
-//        /////////////
-//        chartFour.createGraphic()
-//        chartFive.createGraphic()
-
+        chartIDE.generateChart()
 
         val csvPercentageEUARegardingOthers = CSVPercentageEUAInRelationToOthers()
         csvPercentageEUARegardingOthers.insertNewData(chartMedianSalaryInReal)
         csvPercentageEUARegardingOthers.createCSV()
 
+        languageStudy.generateCSV()
+        platformStudy.generateCSV()
+        frameworkStudy.generateCSV()
+        dataBaseStudy.generateCSV()
 
-        read.close()
-
-
-        return managerData
     }
-
 
 }

@@ -1,7 +1,7 @@
 package graphic.model
 
 //sum
-class GraphicThreeData(val title: String) {
+class ModelLanguageInIDE(val title: String) {
 
     val hashMap = hashMapOf<String, Int>()
 

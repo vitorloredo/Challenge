@@ -67,14 +67,14 @@ class Data(value: String) {
     private val agreeDisagree1: String
     private val agreeDisagree2: String
     private val agreeDisagree3: String
-    val languageWorkedWith: String
-    private val languageDesireNextYear: String
-    private val databaseWorkedWith: String
-    private val databaseDesireNextYear: String
+    val languageWorkedWith: String //
+    val languageDesireNextYear: String
+    val databaseWorkedWith: String
+    val databaseDesireNextYear: String
     val platformWorkedWith: String
-    private val platformDesireNextYear: String
-    private val frameworkWorkedWith: String
-    private val frameworkDesireNextYear: String
+    val platformDesireNextYear: String
+    val frameworkWorkedWith: String
+    val frameworkDesireNextYear: String //
     val iDE: String
     private val operatingSystem: String
     private val numberMonitors: String
@@ -367,7 +367,7 @@ class Data(value: String) {
                 "$frameworkWorkedWith,$frameworkDesireNextYear,$iDE,$operatingSystem,$numberMonitors,$methodology,$versionControl,$checkInCode,$adBlocker,$adBlockerDisable,$adBlockerReasons,$adsAgreeDisagree1,$adsAgreeDisagree2,$adsAgreeDisagree3,$adsActions,$adsPriorities1,$adsPriorities2,$adsPriorities3,$adsPriorities4,$adsPriorities5,$adsPriorities6,$adsPriorities7," +
                 "$aIDangerous,$aIInteresting,$aIResponsible,$aIFuture,$ethicsChoice,$ethicsReport,$ethicsResponsible,$ethicalImplications,$stackOverflowRecommend,$stackOverflowVisit,$stackOverflowHasAccount,$stackOverflowParticipate,$stackOverflowJobs,$stackOverflowDevStory,$stackOverflowJobsRecommend,$stackOverflowConsiderMember,$hypotheticalTools1,$hypotheticalTools2," +
                 "$hypotheticalTools3,$hypotheticalTools4,$hypotheticalTools5,$wakeTime,$hoursComputer,$hoursOutside,$skipMeals,$ergonomicDevices,$exercise,$gender,$sexualOrientation,$educationParents,$raceEthnicity,$age,$dependents,$militaryUS,$surveyTooLong,$surveyEasy," +
-                "${monthlySalary.replace(",",".")},${brazilMonthlySalary.replace(",",".")}"
+                "${monthlySalary.replace(",", ".")},${brazilMonthlySalary.replace(",", ".")}"
 
     }
 

@@ -3,18 +3,18 @@ package graphic.catchdata
 import data.Data
 import extend.isUnknown
 import graphic.createGraphic.CreateBarSet
-import graphic.model.GraphicThreeData
+import graphic.model.ModelLanguageInIDE
 
-class ChartLanguagesPlatform(val title: String) {
-
+class ChartLanguagesVSPlatform() {
+    val title = "languagem vs IDE"
     private val arrayLanguage = arrayListOf<String>()
-    private val arrayGraphicThree = arrayListOf<GraphicThreeData>()
-    private val createBarSet = CreateBarSet("Teste","TsteX","TExtY")
+    private val arrayGraphicThree = arrayListOf<ModelLanguageInIDE>()
+    private val createBarSet = CreateBarSet("Teste", "TsteX", "TExtY")
 
     fun createGraphic() {
-        for (it in arrayGraphicThree){
+        for (it in arrayGraphicThree) {
             for (id in it.hashMap.keys)
-            createBarSet.setValue(it.title,it.have(id))
+                createBarSet.setValue(it.title, it.have(id))
         }
 
         createBarSet.factory()
@@ -41,7 +41,7 @@ class ChartLanguagesPlatform(val title: String) {
                 arrayGraphicThree[indexOf].setLanguage(languageWorkedWith)
 
             } else {
-                arrayGraphicThree.add(GraphicThreeData(it))
+                arrayGraphicThree.add(ModelLanguageInIDE(it))
                 arrayLanguage.add(it)
 
                 val indexOf = arrayLanguage.indexOf(it)
