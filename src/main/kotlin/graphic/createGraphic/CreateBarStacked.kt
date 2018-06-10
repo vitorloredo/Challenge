@@ -16,6 +16,8 @@ class CreateBarStacked(val title: String){
     fun setValue(name: String, value: Double){
 
         defaultCategory.setValue(value,name,name)
+
+        
     }
 
     fun factory() {

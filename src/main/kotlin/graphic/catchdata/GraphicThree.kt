@@ -1,12 +1,26 @@
 package graphic.catchdata
 
 import data.Data
+import graphic.createGraphic.CreateBarSet
 import graphic.data.GraphicThreeData
 
 class GraphicThree(val title: String) {
 
     val arrayLanguage = arrayListOf<String>()
     val arrayGraphicThree = arrayListOf<GraphicThreeData>()
+    val createBarSet = CreateBarSet("Teste","TsteX","TExtY")
+
+    fun createGraphic() {
+        for (it in arrayGraphicThree){
+            for (id in it.hashMap.keys)
+            createBarSet.setValue(it.title,it.have(id))
+        }
+
+        createBarSet.factory()
+
+        println(createBarSet)
+
+    }
 
     fun setValue(data: Data) {
         val platformWorkedWith = data.platformWorkedWith

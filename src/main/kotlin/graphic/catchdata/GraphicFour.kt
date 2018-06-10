@@ -1,10 +1,20 @@
 package graphic.catchdata
 
 import data.Data
+import graphic.createGraphic.CreateBarSet
 
 class GraphicFour(val title: String) {
 
     private val contIDE = hashMapOf<String,Double>()
+    private val createBarSet = CreateBarSet(title,"IDE","Quantidade")
+
+    fun createGraphic() {
+        for (it in contIDE.keys){
+            createBarSet.setValue(it,contIDE[it]!!)
+        }
+
+        createBarSet.factory()
+    }
 
     fun setValue(data: Data) {
         val iDE = data.iDE
@@ -39,5 +49,6 @@ class GraphicFour(val title: String) {
     private fun extractList(str: String) = str.split(";")
 
     private fun notUnknown(country: String) = country != "Unknown"
+
 
 }

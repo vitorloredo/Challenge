@@ -1,7 +1,7 @@
 package graphic.data
 
 //sum
-class GraphicThreeData(val platformWorkedWith: String) {
+class GraphicThreeData(val title: String) {
 
     val hashMap = hashMapOf<String, Int>()
 
@@ -14,6 +14,8 @@ class GraphicThreeData(val platformWorkedWith: String) {
             }
         }
     }
+
+    fun have(string: String) = hashMap[string]!!.toDouble()
 
     fun contains(string: String) = hashMap.contains(string)
 

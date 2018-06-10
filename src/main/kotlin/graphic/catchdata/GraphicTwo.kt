@@ -1,13 +1,20 @@
 package graphic.catchdata
 
 import data.Data
+import graphic.createGraphic.CreateBarSet
 import graphic.data.GraphicTwoDate
 
-class GraphicTwo(val title: String) {
+class GraphicTwo(title: String) {
     val arrayCountry = arrayListOf<String>()
     val arrayGraphicTwo = arrayListOf<GraphicTwoDate>()
+    private val createBarSet = CreateBarSet(title,"Paises","Reais")
 
-    private fun counted(string: String) = arrayCountry.contains(string)
+    fun createGraphic() {
+        for (it in arrayGraphicTwo){
+            createBarSet.setValue(it.title,it.amount())
+        }
+        createBarSet.factory()
+    }
 
     fun setAllUnknown() {
         for (it in arrayGraphicTwo) {
@@ -30,5 +37,7 @@ class GraphicTwo(val title: String) {
         }
 
     }
+
+    private fun counted(string: String) = arrayCountry.contains(string)
 
 }

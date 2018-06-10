@@ -14,7 +14,7 @@ class ReadData {
     private val managerData = ManagerData()
 
     val graphicOne = GraphicOne("Brazil", "United States", "Germany", "Reais")
-    val graphicTwo = GraphicTwo("Meia salarial")
+    val graphicTwo = GraphicTwo("Meia de salario")
     val graphicThree = GraphicThree("languagem vs IDE")
     val graphicFour = GraphicFour("IDE")
     val graphicFive = GraphicFive("Media de pessoas que fizeram ensino superior vs renda")
@@ -49,9 +49,14 @@ class ReadData {
         graphicTwo.setAllUnknown()
         graphicFive.setAllUnknown()
 
-        //DEpois da um create Graphf
 
         graphicOne.createGraphic()
+        graphicTwo.createGraphic()
+        //NAO FUNCIONA
+        graphicThree.createGraphic()
+        /////////////
+        graphicFour.createGraphic()
+        graphicFive.createGraphic()
 
         WritData(arrayData).white()
 

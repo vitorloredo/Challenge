@@ -1,12 +1,30 @@
 package graphic.catchdata
 
 import data.Data
+import graphic.createGraphic.CreateBarSet
 import graphic.data.GraphicFireData
 
 class GraphicFive(val title: String) {
-    val graphicFireData = GraphicFireData("Brazil")
-    val graphicFireData2 = GraphicFireData("United States")
-    val graphicFireData3 = GraphicFireData("Germany")
+    private val graphicFireData = GraphicFireData("Brazil")
+    private val graphicFireData2 = GraphicFireData("United States")
+    private val graphicFireData3 = GraphicFireData("Germany")
+    private val createBarSet = CreateBarSet(title, "Type", "Escolaridade")
+
+    fun createGraphic() {
+        createBarSet.setValue("Brazil/Bachelor", graphicFireData.amountBachelor())
+        createBarSet.setValue("United States/Bachelor", graphicFireData2.amountBachelor())
+        createBarSet.setValue("Germany/Bachelor", graphicFireData3.amountBachelor())
+
+        createBarSet.setValue("Brazil/Master", graphicFireData.amountMaster())
+        createBarSet.setValue("United States/Master", graphicFireData2.amountMaster())
+        createBarSet.setValue("Germany/Master", graphicFireData3.amountMaster())
+
+        createBarSet.setValue("Brazil/Other", graphicFireData.amountOther())
+        createBarSet.setValue("United States/Other", graphicFireData2.amountOther())
+        createBarSet.setValue("Germany/Other", graphicFireData3.amountOther())
+
+        createBarSet.factory()
+    }
 
 
     fun setValues(data: Data) {
