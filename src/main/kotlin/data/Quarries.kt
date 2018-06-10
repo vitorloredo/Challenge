@@ -24,12 +24,29 @@ class Quarries {
 
         for (it in csvParser) {
             val value = it.get(what)
-            if (!array.contains(value)){
+            if (!array.contains(value)) {
                 array.add(value)
             }
         }
 
         return array
+    }
+
+    fun seatchTwoString(what: String, what2: String): ArrayList<ArrayList<String>> {
+        val array = arrayListOf<String>()
+        val array2 = arrayListOf<String>()
+        val superArray = arrayListOf<ArrayList<String>>()
+
+        for (it in csvParser) {
+            val value = it.get(what)
+            array.add(value)
+            val value2 = it.get(what2)
+            array2.add(value2)
+        }
+
+        superArray.add(array)
+        superArray.add(array2)
+        return superArray
     }
 
     fun searchTwoDouble(value1: String, value2: String, what: String): ArrayList<Double> {

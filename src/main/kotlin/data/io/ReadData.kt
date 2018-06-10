@@ -51,6 +51,7 @@ class ReadData {
 
         //DEpois da um create Graphf
 
+        graphicOne.createGraphic()
 
         WritData(arrayData).white()
 

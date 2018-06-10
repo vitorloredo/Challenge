@@ -1,7 +1,5 @@
 package data
 
-import extend.removeFormat
-
 class Data(value: String) {
     private val valueBase = -1.0
     private val respondent: String

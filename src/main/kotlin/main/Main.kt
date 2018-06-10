@@ -1,7 +1,9 @@
 package main
 
+import data.Quarries
 import data.io.ReadData
 import graphic.ManagerGraphic
+import java.util.*
 
 
 private val readData = ReadData()
@@ -21,8 +23,11 @@ fun main(args: Array<String>) {
 
     val managerGraphic = ManagerGraphic()
 
-    managerGraphic.createHistograma()
+    //managerGraphic.createHistograma()
     //GraphicTwo("")
+    Quarries().seatchTwoString("JobSatisfaction","JobSearchStatus")
+    //"CareerSatisfaction" "LastNewJob"
+    Quarries().seatchTwoString("CareerSatisfaction","LastNewJob")
 
     println(rt.freeMemory() - totalMemory)
 
@@ -35,7 +40,7 @@ fun main(args: Array<String>) {
 //
 //    managerGraphic.createHistograma(brazilBrazilMonthly, unitedBrazilMonthly, germanyBrazilMonthly, "Reais")
 //    managerGraphic.createBarMonthly(managerData = managerData,title = "Media de salarios",strX =  "Paises", strY = "Reais")
-////
+//
 //    val ides = managerData.createIDE()
 //
 //    managerGraphic.creteBarIDE("IDE",ides,"IDE","Teste")

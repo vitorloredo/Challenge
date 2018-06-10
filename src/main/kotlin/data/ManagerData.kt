@@ -1,6 +1,6 @@
 package data
 
-import data.handle.CountrySalary
+import data.handle.SetUnknownValuesCountrySalary
 import data.handle.CreateBrazilMonthlySalary
 import data.handle.CreateMonthlySalary
 
@@ -33,9 +33,9 @@ class ManagerData {
         idCountry[country] = listValue
     }
 
-    private fun addNotExistCountry(country: String, value: Int) {
+    private fun addNotExistCountry(country: String, position: Int) {
         val newMutableList = mutableListOf<Int>()
-        newMutableList.add(value)
+        newMutableList.add(position)
         idCountry[country] = newMutableList
     }
 
@@ -46,7 +46,7 @@ class ManagerData {
     }
 
     private fun countrySalaryUnknown(arrayData: ArrayList<Data>) {
-        CountrySalary(arrayData, idCountry).setConvertedSalaryUnknown()
+        SetUnknownValuesCountrySalary(arrayData, idCountry).setConvertedSalaryUnknown()
     }
 
     private fun createMonthlySalary(arrayData: ArrayList<Data>) {

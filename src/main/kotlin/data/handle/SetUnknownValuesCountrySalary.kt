@@ -3,8 +3,8 @@ package data.handle
 import data.Data
 import java.util.*
 
-class CountrySalary(private val arrayData: ArrayList<Data>,
-                    private val idCountry: HashMap<String, MutableList<Int>>) {
+class SetUnknownValuesCountrySalary(private val arrayData: ArrayList<Data>,
+                                    private val idCountry: HashMap<String, MutableList<Int>>) {
 
     private val baseValueConvertedSalary = -1.0
 
