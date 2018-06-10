@@ -6,7 +6,7 @@ import graphic.createGraphic.CreateBarSet
 import graphic.model.ModelHigherEducation
 
 class HigherEducation() {
-    val title = "Media de mais alto em relacao a media salarial de outros paises"
+    val title = "Media do mais alto grau de escolaridade em comparacao a media salarial de alguns paises"
     private val graphicFireData = ModelHigherEducation("United States")
     var contriy = mutableListOf<CountrySalaryMedianInReal>()
 

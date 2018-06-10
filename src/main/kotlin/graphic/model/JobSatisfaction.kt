@@ -1,6 +1,6 @@
 package graphic.model
 
-class JobSatisfaction(val name: String) {
+class JobSatisfaction(name: String) {
     var notInterestedNewJob = 0
     var notLookingButOpenNewJob = 0
     var lookingJob = 0

@@ -6,10 +6,10 @@ import graphic.createGraphic.CreateBarSet
 import graphic.model.ModelLanguageInIDE
 
 class ChartLanguagesVSPlatform() {
-    val title = "languagem vs IDE"
+    val title = "Linguagem vs IDE"
     private val arrayLanguage = arrayListOf<String>()
     private val arrayGraphicThree = arrayListOf<ModelLanguageInIDE>()
-    private val createBarSet = CreateBarSet("Teste", "TsteX", "TExtY")
+    private val createBarSet = CreateBarSet("Linguagem vs IDE", "TsteX", "TExtY")
 
     fun createGraphic() {
         for (it in arrayGraphicThree) {
@@ -18,7 +18,6 @@ class ChartLanguagesVSPlatform() {
         }
 
         createBarSet.factory()
-
     }
 
     fun setValue(data: Data) {

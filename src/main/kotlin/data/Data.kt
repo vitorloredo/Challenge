@@ -15,10 +15,10 @@ class Data(value: String) {
     private val yearsCoding: String
     private val yearsCodingProf: String
     val jobSatisfaction: String
-    private val careerSatisfaction: String
+    val careerSatisfaction: String
     private val hopeFiveYears: String
     val jobSearchStatus: String
-    private val lastNewJob: String
+    val lastNewJob: String
     private val assessJob1: String
     private val assessJob2: String
     private val assessJob3: String

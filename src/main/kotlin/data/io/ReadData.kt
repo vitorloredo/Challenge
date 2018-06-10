@@ -1,7 +1,7 @@
 package data.io
 
 import data.Data
-import data.JobSearch
+import graphic.catchdata.CSVJobSearch
 import data.ManagerData
 import graphic.catchdata.*
 import graphic.createGraphic.CSVPercentageFutureStudy
@@ -20,12 +20,13 @@ class ReadData {
     private val higherEducation = HigherEducation()
     private val chartMedianSalaryInReal = ChartMedianSalaryInReal()
 
-    private val languageStudy = CSVPercentageFutureStudy("Novo estudo de linguagem")
-    private val platformStudy = CSVPercentageFutureStudy("Novo estudo de plataforma")
-    private val frameworkStudy = CSVPercentageFutureStudy("Novo estudo de Framework")
-    private val dataBaseStudy = CSVPercentageFutureStudy("Novo estudo Database")
+    private val languageStudy = CSVPercentageFutureStudy("Quantidade de pessoas que querem estudar uma nova linguagem")
+    private val platformStudy = CSVPercentageFutureStudy("Quantidade de pessoas que querem estudar uma nova plataforma")
+    private val frameworkStudy = CSVPercentageFutureStudy("Quantidade de pessoas que querem estudar uma nova Framework")
+    private val dataBaseStudy = CSVPercentageFutureStudy("Quantidade de pessoas que querem estudar uma nova Database")
 
-    private val jobSearch = JobSearch()
+    private val jobSearch = CSVJobSearch()
+    private val jobPermanence = CSVJobPermanence()
 
 
     fun read() {
@@ -44,14 +45,15 @@ class ReadData {
 
             higherEducation.insertNewData(data)
             chartIDE.insertNewData(data)
-            chartLanguagesVSPlatform.setValue(data) //Not fac nao funciona direito
+            chartLanguagesVSPlatform.setValue(data)
 
             languageStudy.insertNewData(data.languageWorkedWith, data.languageDesireNextYear)
             platformStudy.insertNewData(data.platformWorkedWith, data.platformDesireNextYear)
             frameworkStudy.insertNewData(data.frameworkWorkedWith, data.frameworkDesireNextYear)
             dataBaseStudy.insertNewData(data.databaseWorkedWith, data.databaseDesireNextYear)
 
-            jobSearch.insertNewData(data.jobSatisfaction,data.jobSearchStatus)
+            jobSearch.insertNewData(data.jobSatisfaction, data.jobSearchStatus)
+            jobPermanence.insertNewData(data.careerSatisfaction,data.lastNewJob)
 
             chartMedianSalaryInReal.insertNewData(data)
 
@@ -60,8 +62,11 @@ class ReadData {
         }
 
         read.close()
+
         managerData.handleBrazilianSalary(arrayData)
+
         WritData(arrayData).white()
+
         arrayData.clear()
 
         chartMedianSalaryInReal.generateChart()
@@ -77,7 +82,7 @@ class ReadData {
 
         val csvPercentageEUARegardingOthers = CSVPercentageEUAInRelationToOthers()
         csvPercentageEUARegardingOthers.insertNewData(chartMedianSalaryInReal)
-        csvPercentageEUARegardingOthers.createCSV()
+        csvPercentageEUARegardingOthers.generateCSV()
 
         languageStudy.generateCSV()
         platformStudy.generateCSV()
@@ -85,6 +90,7 @@ class ReadData {
         dataBaseStudy.generateCSV()
 
         jobSearch.generateCSV()
+        jobPermanence.generateCSV()
 
     }
 

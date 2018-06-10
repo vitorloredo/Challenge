@@ -1,4 +1,4 @@
-package data
+package graphic.catchdata
 
 import extend.isUnknown
 import graphic.model.JobSatisfaction
@@ -6,7 +6,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 
-class JobSearch {
+class CSVJobSearch {
     private var title: String = "JobSearch"
     private val jobSatisfactionModeratelySatisfied = JobSatisfaction("Moderately satisfied")
     private val jobSatisfactionExtremelyDissatisfied = JobSatisfaction("Extremely dissatisfied")

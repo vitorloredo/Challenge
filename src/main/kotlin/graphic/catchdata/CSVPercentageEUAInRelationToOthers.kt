@@ -24,7 +24,7 @@ class CSVPercentageEUAInRelationToOthers {
         }
     }
 
-    fun createCSV() {
+    fun generateCSV() {
         val baseName = File(".").canonicalPath
         val localFileName = FileWriter("$baseName\\src\\info\\$title.csv")
         val white = BufferedWriter(localFileName)
