@@ -34,7 +34,7 @@ class CreateHistogram(private val title: String) {
 
     private fun save(graf: JFreeChart) {
         val baseName = File(".").canonicalPath
-        val file = FileOutputStream("$baseName\\src\\info\\Histogra.png")
+        val file = FileOutputStream("$baseName\\src\\info\\$title.png")
         ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
         file.close()
     }

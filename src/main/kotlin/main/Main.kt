@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
     val managerGraphic = ManagerGraphic()
 
     //managerGraphic.createHistograma()
-    //GraphicTwo("")
+    //ChartTwo("")
     Quarries().seatchTwoString("JobSatisfaction","JobSearchStatus")
     //"CareerSatisfaction" "LastNewJob"
     Quarries().seatchTwoString("CareerSatisfaction","LastNewJob")

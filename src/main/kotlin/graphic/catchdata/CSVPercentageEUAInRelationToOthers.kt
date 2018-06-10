@@ -1,22 +1,29 @@
 package graphic.catchdata
 
+import data.CountrySalaryMedianInReal
 import graphic.data.CSVEightData
-import graphic.data.GraphicTwoDate
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 
-class CSVEight(countryList: ArrayList<GraphicTwoDate>, arrayCountry: ArrayList<String>) {
+class CSVPercentageEUAInRelationToOthers {
+    val title = "Media salario dos EUA em percentual em relacao outros paises"
+    var salariesDistrubuition = mutableListOf<CountrySalaryMedianInReal>()
+
+    fun insertNewData(chartMedianSalaryInReal: ChartMedianSalaryInReal) {
+        chartMedianSalaryInReal.medianOfSalaries.ta { it.salaryInReal ==  "United States"}
+    }
+
     private val arrayData = arrayListOf<CSVEightData>()
     private val indexEUA = arrayCountry.indexOf("United States")
     private val valueEUA = countryList[indexEUA].amount()
 
-    init {
-        for (it in countryList) {
-            arrayData.add(CSVEightData(it.amount(), it.title))
-        }
-        average()
-    }
+//    init {
+//        for (it in countryList) {
+//            arrayData.add(CSVEightData(it.amount(), it.title))
+//        }
+//        average()
+//    }
 
     fun createCSV() {
         val baseName = File(".").canonicalPath

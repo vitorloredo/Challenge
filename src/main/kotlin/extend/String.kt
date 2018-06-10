@@ -9,3 +9,6 @@ fun String.removeFormat(): String {
 fun String.convertsStringFormatToDouble(): Double {
     return this.removeFormat().replace(".", "").toDouble() / 100
 }
+
+fun String.isUnknown() = this == "Unknown"
+

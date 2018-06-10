@@ -1,10 +1,11 @@
 package graphic.catchdata
 
 import data.Data
+import extend.isUnknown
 import graphic.createGraphic.CreateBarSet
 import graphic.data.GraphicThreeData
 
-class GraphicThree(val title: String) {
+class ChartLanguagesPlatform(val title: String) {
 
     private val arrayLanguage = arrayListOf<String>()
     private val arrayGraphicThree = arrayListOf<GraphicThreeData>()
@@ -25,10 +26,10 @@ class GraphicThree(val title: String) {
 
         val languageWorkedWith = data.languageWorkedWith
 
-        val notUnknown = notUnknown(platformWorkedWith)
-        val notUnknown2 = notUnknown(languageWorkedWith)
+        val notUnknown = platformWorkedWith.isUnknown()
+        val notUnknown2 = languageWorkedWith.isUnknown()
 
-        if (notUnknown && notUnknown2) {
+        if (!notUnknown && !notUnknown2) {
             getPlatform(platformWorkedWith.split(";"), languageWorkedWith.split(";"))
         }
     }
@@ -50,7 +51,5 @@ class GraphicThree(val title: String) {
     }
 
     private fun counted(string: String) = arrayLanguage.contains(string)
-
-    private fun notUnknown(country: String) = country != "Unknown"
 
 }

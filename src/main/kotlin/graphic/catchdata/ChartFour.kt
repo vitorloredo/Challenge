@@ -3,7 +3,7 @@ package graphic.catchdata
 import data.Data
 import graphic.createGraphic.CreateBarSet
 
-class GraphicFour(val title: String) {
+class ChartFour(val title: String) {
 
     private val contIDE = hashMapOf<String,Double>()
     private val createBarSet = CreateBarSet(title,"IDE","Quantidade")

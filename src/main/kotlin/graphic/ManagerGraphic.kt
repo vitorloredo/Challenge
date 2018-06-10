@@ -1,13 +1,12 @@
 package graphic
 
 import data.ManagerData
-import graphic.catchdata.GraphicOne
 
 
 class ManagerGraphic {
 
     fun createHistograma() {
-        GraphicOne("Brazil", "United States", "Germany", "Reais")
+
     }
 
     fun creteBarIDE(title: String,strX: String,strY: String){

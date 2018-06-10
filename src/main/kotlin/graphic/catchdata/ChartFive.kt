@@ -4,7 +4,7 @@ import data.Data
 import graphic.createGraphic.CreateBarSet
 import graphic.data.GraphicFireData
 
-class GraphicFive(val title: String) {
+class ChartFive(val title: String) {
     private val graphicFireData = GraphicFireData("Brazil")
     private val graphicFireData2 = GraphicFireData("United States")
     private val graphicFireData3 = GraphicFireData("Germany")
