@@ -8,6 +8,6 @@ class CSVEightData(val average: Double, val name: String) {
     private val format = DecimalFormat("#0.00")
 
     override fun toString(): String {
-        return "%${format.format(percentage)},$name"
+        return "$name,%${format.format(percentage)}"
     }
 }

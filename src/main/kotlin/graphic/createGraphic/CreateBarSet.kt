@@ -34,7 +34,7 @@ class CreateBarSet(private val title: String,
     private fun create(graf: JFreeChart) {
         val baseName = File(".").canonicalPath
         val file = FileOutputStream("$baseName\\src\\info\\$title.png")
-        ChartUtilities.writeChartAsPNG(file, graf, 2550, 2400)
+        ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
         file.close()
     }
 

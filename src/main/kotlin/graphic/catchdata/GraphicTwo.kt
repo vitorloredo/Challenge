@@ -26,7 +26,7 @@ class GraphicTwo(title: String) {
         val country = data.country
         val brazilMonthlySalary = data.brazilMonthlySalary.toDouble()
 
-        if (counted(country)) {
+        if (contains(country)) {
             val indexOf = arrayCountry.indexOf(country)
             arrayGraphicTwo[indexOf].setSalary(brazilMonthlySalary)
         } else {
@@ -38,6 +38,6 @@ class GraphicTwo(title: String) {
 
     }
 
-    private fun counted(string: String) = arrayCountry.contains(string)
+    private fun contains(string: String) = arrayCountry.contains(string)
 
 }

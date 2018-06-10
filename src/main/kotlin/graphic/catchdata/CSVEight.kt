@@ -5,13 +5,18 @@ import graphic.data.GraphicTwoDate
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
-import java.text.DecimalFormat
 
-class CSVEight(val countryList: ArrayList<GraphicTwoDate>, arrayCountry: ArrayList<String>) {
-    val arrayPerse = arrayListOf<CSVEightData>()
+class CSVEight(countryList: ArrayList<GraphicTwoDate>, arrayCountry: ArrayList<String>) {
+    private val arrayData = arrayListOf<CSVEightData>()
+    private val indexEUA = arrayCountry.indexOf("United States")
+    private val valueEUA = countryList[indexEUA].amount()
 
-    val indexEUA = arrayCountry.indexOf("United States")
-    val valueEUA = countryList[indexEUA].amount()
+    init {
+        for (it in countryList) {
+            arrayData.add(CSVEightData(it.amount(), it.title))
+        }
+        average()
+    }
 
     fun createCSV() {
         val baseName = File(".").canonicalPath
@@ -21,7 +26,7 @@ class CSVEight(val countryList: ArrayList<GraphicTwoDate>, arrayCountry: ArrayLi
         white.write("Pais,Persentual em relacao ao EUA")
         white.newLine()
 
-        for (it in arrayPerse) {
+        for (it in arrayData) {
             white.write(it.toString())
             white.newLine()
         }
@@ -30,15 +35,8 @@ class CSVEight(val countryList: ArrayList<GraphicTwoDate>, arrayCountry: ArrayLi
 
     }
 
-    init {
-        for (it in countryList) {
-            arrayPerse.add(CSVEightData(it.amount(), it.title))
-        }
-        average()
-    }
-
     private fun average() {
-        for (it in arrayPerse) {
+        for (it in arrayData) {
             it.percentage = (it.average * 100) / valueEUA
         }
     }
