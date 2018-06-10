@@ -13,11 +13,11 @@ class ReadData {
     private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
 
-    val graphicOne = GraphicOne("Brazil", "United States", "Germany", "Reais")
-    val graphicTwo = GraphicTwo("Meia de salario")
-    val graphicThree = GraphicThree("languagem vs IDE")
-    val graphicFour = GraphicFour("IDE")
-    val graphicFive = GraphicFive("Media de pessoas que fizeram ensino superior vs renda")
+    private val graphicOne = GraphicOne("Brazil", "United States", "Germany", "Reais")
+    private val graphicTwo = GraphicTwo("Meia de salario")
+    private val graphicThree = GraphicThree("languagem vs IDE")
+    private val graphicFour = GraphicFour("IDE")
+    private val graphicFive = GraphicFive("Media de pessoas que fizeram ensino superior vs renda")
 
     fun read(): ManagerData {
         val baseName = File(".").canonicalPath
@@ -44,6 +44,8 @@ class ReadData {
         }
 
         managerData.handleBrazilianSalary(arrayData)
+        WritData(arrayData).white()
+        arrayData.clear()
 
         graphicOne.setAllUnknown()
         graphicTwo.setAllUnknown()
@@ -58,7 +60,11 @@ class ReadData {
         graphicFour.createGraphic()
         graphicFive.createGraphic()
 
-        WritData(arrayData).white()
+
+        val csvEight = CSVEight(graphicTwo.arrayGraphicTwo, graphicTwo.arrayCountry)
+        csvEight.createCSV()
+
+
 
         read.close()
 

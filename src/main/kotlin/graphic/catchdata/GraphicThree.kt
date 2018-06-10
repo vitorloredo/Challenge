@@ -6,9 +6,9 @@ import graphic.data.GraphicThreeData
 
 class GraphicThree(val title: String) {
 
-    val arrayLanguage = arrayListOf<String>()
-    val arrayGraphicThree = arrayListOf<GraphicThreeData>()
-    val createBarSet = CreateBarSet("Teste","TsteX","TExtY")
+    private val arrayLanguage = arrayListOf<String>()
+    private val arrayGraphicThree = arrayListOf<GraphicThreeData>()
+    private val createBarSet = CreateBarSet("Teste","TsteX","TExtY")
 
     fun createGraphic() {
         for (it in arrayGraphicThree){
@@ -17,8 +17,6 @@ class GraphicThree(val title: String) {
         }
 
         createBarSet.factory()
-
-        println(createBarSet)
 
     }
 

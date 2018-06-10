@@ -7,11 +7,11 @@ import graphic.data.GraphicTwoDate
 class GraphicTwo(title: String) {
     val arrayCountry = arrayListOf<String>()
     val arrayGraphicTwo = arrayListOf<GraphicTwoDate>()
-    private val createBarSet = CreateBarSet(title,"Paises","Reais")
+    private val createBarSet = CreateBarSet(title, "Paises", "Reais")
 
     fun createGraphic() {
-        for (it in arrayGraphicTwo){
-            createBarSet.setValue(it.title,it.amount())
+        for (it in arrayGraphicTwo) {
+            createBarSet.setValue(it.title, it.amount())
         }
         createBarSet.factory()
     }
