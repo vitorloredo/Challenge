@@ -1,6 +1,5 @@
 package graphic.model
 
-//sum
 class ModelLanguageInIDE(val title: String) {
 
     val hashMap = hashMapOf<String, Int>()

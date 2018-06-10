@@ -1,6 +1,7 @@
 package data.io
 
 import data.Data
+import data.JobSearch
 import data.ManagerData
 import graphic.catchdata.*
 import graphic.createGraphic.CSVPercentageFutureStudy
@@ -23,6 +24,9 @@ class ReadData {
     private val platformStudy = CSVPercentageFutureStudy("Novo estudo de plataforma")
     private val frameworkStudy = CSVPercentageFutureStudy("Novo estudo de Framework")
     private val dataBaseStudy = CSVPercentageFutureStudy("Novo estudo Database")
+
+    private val jobSearch = JobSearch()
+
 
     fun read() {
         val baseName = File(".").canonicalPath
@@ -47,6 +51,7 @@ class ReadData {
             frameworkStudy.insertNewData(data.frameworkWorkedWith, data.frameworkDesireNextYear)
             dataBaseStudy.insertNewData(data.databaseWorkedWith, data.databaseDesireNextYear)
 
+            jobSearch.insertNewData(data.jobSatisfaction,data.jobSearchStatus)
 
             chartMedianSalaryInReal.insertNewData(data)
 
@@ -78,6 +83,8 @@ class ReadData {
         platformStudy.generateCSV()
         frameworkStudy.generateCSV()
         dataBaseStudy.generateCSV()
+
+        jobSearch.generateCSV()
 
     }
 

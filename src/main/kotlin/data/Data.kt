@@ -14,10 +14,10 @@ class Data(value: String) {
     private val devType: String
     private val yearsCoding: String
     private val yearsCodingProf: String
-    private val jobSatisfaction: String
+    val jobSatisfaction: String
     private val careerSatisfaction: String
     private val hopeFiveYears: String
-    private val jobSearchStatus: String
+    val jobSearchStatus: String
     private val lastNewJob: String
     private val assessJob1: String
     private val assessJob2: String
@@ -160,12 +160,12 @@ class Data(value: String) {
         this.yearsCoding = values[10]
         this.yearsCodingProf = values[11]
 
-        this.jobSatisfaction = values[12] //Tabela de sastifcaa
+        this.jobSatisfaction = values[12]
 
         this.careerSatisfaction = values[13]
         this.hopeFiveYears = values[14]
 
-        this.jobSearchStatus = values[15]//Tabela de sastifcaa
+        this.jobSearchStatus = values[15]
 
         this.lastNewJob = values[16]
         this.assessJob1 = values[17]
