@@ -1,6 +1,5 @@
 package data
 
-import extend.convertsStringFormatToDouble
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import java.io.File
@@ -18,20 +17,6 @@ class Quarries {
             .withFirstRecordAsHeader()
             .withTrim())
 
-
-    fun seatchOneString(what: String): ArrayList<String> {
-        val array = arrayListOf<String>()
-
-        for (it in csvParser) {
-            val value = it.get(what)
-            if (!array.contains(value)) {
-                array.add(value)
-            }
-        }
-
-        return array
-    }
-
     fun seatchTwoString(what: String, what2: String): ArrayList<ArrayList<String>> {
         val array = arrayListOf<String>()
         val array2 = arrayListOf<String>()
@@ -48,17 +33,4 @@ class Quarries {
         superArray.add(array2)
         return superArray
     }
-
-    fun searchTwoDouble(value1: String, value2: String, what: String): ArrayList<Double> {
-        val array = arrayListOf<Double>()
-        for (it in csvParser) {
-            val value = it.get(value1)
-            if (value == what) {
-                array.add(it.get(value2).convertsStringFormatToDouble())
-            }
-        }
-        return array
-    }
-
-
 }

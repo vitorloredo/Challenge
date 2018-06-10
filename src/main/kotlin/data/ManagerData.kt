@@ -3,6 +3,7 @@ package data
 import data.handle.SetUnknownValuesCountrySalary
 import data.handle.CreateBrazilMonthlySalary
 import data.handle.CreateMonthlySalary
+import extend.isUnknown
 
 class ManagerData {
 
@@ -10,9 +11,9 @@ class ManagerData {
 
     fun setIdCountry(data: Data, position: Int) {
         val country = data.country
-        val notUnknownCountry = notUnknown(country)
+        val notUnknownCountry = country.isUnknown()
 
-        if (notUnknownCountry) {
+        if (!notUnknownCountry) {
             val containsKey = idCountry.containsKey(country)
 
             if (containsKey) {
@@ -24,8 +25,6 @@ class ManagerData {
             data.convertedSalary = 0.0
         }
     }
-
-    private fun notUnknown(str: String) = str != "Unknown"
 
     private fun addExistCountry(country: String, position: Int) {
         val listValue = idCountry.get(country)!!

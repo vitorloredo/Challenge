@@ -67,14 +67,14 @@ class Data(value: String) {
     private val agreeDisagree1: String
     private val agreeDisagree2: String
     private val agreeDisagree3: String
-    val languageWorkedWith: String //
+    val languageWorkedWith: String
     val languageDesireNextYear: String
     val databaseWorkedWith: String
     val databaseDesireNextYear: String
     val platformWorkedWith: String
     val platformDesireNextYear: String
     val frameworkWorkedWith: String
-    val frameworkDesireNextYear: String //
+    val frameworkDesireNextYear: String
     val iDE: String
     private val operatingSystem: String
     private val numberMonitors: String
@@ -314,7 +314,6 @@ class Data(value: String) {
         val valueFinal = "$value,"
 
         for (letter in valueFinal) {
-
             if (letter == '"') {
                 notText = notText != true
             }
@@ -323,7 +322,6 @@ class Data(value: String) {
                 contFinal = cont
 
                 for (i in contInit..contFinal) {
-
                     if (valueFinal[i] != ',') {
                         word += valueFinal[i]
                     }
@@ -335,10 +333,8 @@ class Data(value: String) {
                 } else {
                     listFinal.add("Unknown")
                 }
-
                 word = ""
             }
-
             cont += 1
         }
         return listFinal
