@@ -1,4 +1,4 @@
-package graphic.data
+package graphic.model
 
 //sum
 class GraphicThreeData(val title: String) {

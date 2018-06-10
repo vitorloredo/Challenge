@@ -1,4 +1,4 @@
-package graphic.data
+package graphic.model
 
 class GraphicTwoDate(val title: String) {
     val salaryTotal = arrayListOf<Double>()

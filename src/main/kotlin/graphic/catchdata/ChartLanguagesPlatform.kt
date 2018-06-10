@@ -3,7 +3,7 @@ package graphic.catchdata
 import data.Data
 import extend.isUnknown
 import graphic.createGraphic.CreateBarSet
-import graphic.data.GraphicThreeData
+import graphic.model.GraphicThreeData
 
 class ChartLanguagesPlatform(val title: String) {
 

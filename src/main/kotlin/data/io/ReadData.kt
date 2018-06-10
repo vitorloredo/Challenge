@@ -3,6 +3,7 @@ package data.io
 import data.Data
 import data.ManagerData
 import graphic.catchdata.*
+import graphic.model.ChartDistributionSalaryInReal
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -35,9 +36,9 @@ class ReadData {
 
             managerData.setIdCountry(data, cont)
 
-//            chartThree.setValue(data)
-//            chartFour.setValue(data)
-//            chartFive.setValues(data)
+//            chartThree.setValue(model)
+//            chartFour.setValue(model)
+//            chartFive.setValues(model)
 
             chartMedianSalaryInReal.insertNewData(data)
 

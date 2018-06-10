@@ -1,4 +1,4 @@
-package graphic.data
+package graphic.model
 
 class GraphicFireData(val title: String) {
     var salaryListBachelor = arrayListOf<Double>()

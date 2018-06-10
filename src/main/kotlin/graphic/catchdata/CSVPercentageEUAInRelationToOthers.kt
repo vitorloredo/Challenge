@@ -1,50 +1,42 @@
 package graphic.catchdata
 
-import data.CountrySalaryMedianInReal
-import graphic.data.CSVEightData
+import graphic.model.CountrySalaryInPercentageRelationEUA
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 
+
 class CSVPercentageEUAInRelationToOthers {
     val title = "Media salario dos EUA em percentual em relacao outros paises"
-    var salariesDistrubuition = mutableListOf<CountrySalaryMedianInReal>()
+    val arrayCountrySalary = arrayListOf<CountrySalaryInPercentageRelationEUA>()
 
     fun insertNewData(chartMedianSalaryInReal: ChartMedianSalaryInReal) {
-        chartMedianSalaryInReal.medianOfSalaries.ta { it.salaryInReal ==  "United States"}
+        val eua = chartMedianSalaryInReal.medianOfSalaries.first { it.country == "United States" }
+
+        arrayCountrySalary.add(CountrySalaryInPercentageRelationEUA(eua.country, eua.median(), eua.median()))
+
+        val contries = chartMedianSalaryInReal.medianOfSalaries
+                .filter { it.country != "United States" }
+                .toMutableList()
+
+        contries.forEach {
+            arrayCountrySalary.add(CountrySalaryInPercentageRelationEUA(it.country, eua.median(), it.median()))
+        }
     }
-
-    private val arrayData = arrayListOf<CSVEightData>()
-    private val indexEUA = arrayCountry.indexOf("United States")
-    private val valueEUA = countryList[indexEUA].amount()
-
-//    init {
-//        for (it in countryList) {
-//            arrayData.add(CSVEightData(it.amount(), it.title))
-//        }
-//        average()
-//    }
 
     fun createCSV() {
         val baseName = File(".").canonicalPath
-        val localFileName = FileWriter("$baseName\\src\\info\\Media salario EUA em all.csv")
+        val localFileName = FileWriter("$baseName\\src\\info\\$title.csv")
         val white = BufferedWriter(localFileName)
 
-        white.write("Pais,Persentual em relacao ao EUA")
+        white.write("Pais,Percentual em relacao ao EUA")
         white.newLine()
 
-        for (it in arrayData) {
+        for (it in arrayCountrySalary) {
             white.write(it.toString())
             white.newLine()
         }
 
         white.close()
-
-    }
-
-    private fun average() {
-        for (it in arrayData) {
-            it.percentage = (it.average * 100) / valueEUA
-        }
     }
 }

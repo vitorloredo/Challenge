@@ -2,7 +2,7 @@ package graphic.catchdata
 
 import data.Data
 import graphic.createGraphic.CreateBarSet
-import graphic.data.GraphicFireData
+import graphic.model.GraphicFireData
 
 class ChartFive(val title: String) {
     private val graphicFireData = GraphicFireData("Brazil")

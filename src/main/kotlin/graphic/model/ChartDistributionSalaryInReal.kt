@@ -1,6 +1,7 @@
-package graphic.catchdata
+package graphic.model
 
 import data.CountrySalaryMedianInReal
+import graphic.catchdata.ChartMedianSalaryInReal
 import graphic.createGraphic.CreateHistogram
 
 class ChartDistributionSalaryInReal {
