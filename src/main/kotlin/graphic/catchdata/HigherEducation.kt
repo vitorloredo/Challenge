@@ -7,13 +7,13 @@ import graphic.model.ModelHigherEducation
 
 class HigherEducation() {
 
-    val title = "Media do mais alto grau de escolaridade em comparacao a media salarial de alguns paises"
+    val title = "Media do alto grau de escolaridade(Bacharelado, Mestre e Doutorado) em comparacao a media salarial de alguns paises"
     private val graphicFireData = ModelHigherEducation("United States")
     private var contriy = mutableListOf<CountrySalaryMedianInReal>()
 
 
     fun generateChart() {
-        val createBarSet = CreateBarSet(title, "EUA/Outros paises", "Escolaridade")
+        val createBarSet = CreateBarSet(title, "EUA/Outros paises", "Salario em reais(R$)")
 
         createBarSet.setValue("United States/Master", graphicFireData.medianMaster(), "")
         createBarSet.setValue("United States/Bachelor", graphicFireData.medianBachelor(), "")

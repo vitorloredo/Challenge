@@ -8,8 +8,9 @@ import extend.isUnknown
 class ManagerData {
 
     private val idCountry = hashMapOf<String, MutableList<Int>>()
+    private var position = 0
 
-    fun setIdCountry(data: Data, position: Int) {
+    fun setIdCountry(data: Data) {
         val country = data.country
         val notUnknownCountry = country.isUnknown()
 
@@ -24,6 +25,12 @@ class ManagerData {
         } else {
             data.convertedSalary = 0.0
         }
+
+        contId()
+    }
+
+    private fun contId() {
+        position += 1
     }
 
     private fun addExistCountry(country: String, position: Int) {

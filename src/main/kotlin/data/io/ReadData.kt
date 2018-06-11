@@ -11,11 +11,10 @@ import java.io.FileReader
 
 class ReadData {
 
-    private var cont: Int = 0
     private val arrayData = arrayListOf<Data>()
     private val managerData = ManagerData()
 
-    private val chartLanguagesVSPlatform = ChartLanguagesVSPlatform()
+    private val chartLanguagesVSPlatform = ChartLanguagesXPlatform()
     private val chartIDE = ChartIDE()
     private val higherEducation = HigherEducation()
     private val chartMedianSalaryInReal = ChartMedianSalaryInReal()
@@ -40,7 +39,7 @@ class ReadData {
             val data = Data(line)
             arrayData.add(data)
 
-            managerData.setIdCountry(data, cont)
+            managerData.setIdCountry(data)
 
             higherEducation.insertNewData(data)
             chartIDE.insertNewData(data)
@@ -57,7 +56,6 @@ class ReadData {
             chartMedianSalaryInReal.insertNewData(data)
 
             line = read.readLine()
-            cont += 1
         }
 
         read.close()

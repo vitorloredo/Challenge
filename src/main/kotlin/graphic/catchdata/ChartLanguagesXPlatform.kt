@@ -5,12 +5,13 @@ import extend.isUnknown
 import graphic.createchart.CreateBarStacked
 import graphic.model.ModelLanguageInPlatform
 
-class ChartLanguagesVSPlatform() {
+class ChartLanguagesXPlatform() {
 
     val title = "Linguagem vs IDE"
     private val arrayLanguage = arrayListOf<String>()
     private val arrayGraphicThree = arrayListOf<ModelLanguageInPlatform>()
-    private val createBarSet = CreateBarStacked("Linguagem vs Sistema operacional")
+    private val createBarSet = CreateBarStacked("Linguagem de programação x Sistema operacional",
+            "Sistema operacional","Quantidade de pessoas")
 
     fun generateChart() {
         for (it in arrayGraphicThree) {

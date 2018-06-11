@@ -8,8 +8,9 @@ import org.jfree.data.category.DefaultCategoryDataset
 import java.io.File
 import java.io.FileOutputStream
 
-
-class CreateBarStacked(val title: String) {
+class CreateBarStacked(private val title: String,
+                       private val strX: String,
+                       private val strY: String) {
 
     private var defaultCategory = DefaultCategoryDataset()
 
@@ -19,8 +20,8 @@ class CreateBarStacked(val title: String) {
 
     fun factory() {
         val createStackedBarChart = ChartFactory.createStackedBarChart(title,
-                "Paises",
-                "Reais",
+                strX,
+                strY,
                 defaultCategory,
                 PlotOrientation.VERTICAL,
                 true,

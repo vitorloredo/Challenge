@@ -10,7 +10,7 @@ class ChartIDE() {
     private val contIDE = hashMapOf<String, Double>()
 
     fun generateChart() {
-        val createBarSet = CreateBarSet(title, "IDE", "Quantidade")
+        val createBarSet = CreateBarSet(title, "IDE", "Quantidade de pessoas que usam a IDE")
         for (it in contIDE.keys) {
             createBarSet.setValue(it, contIDE[it]!!, "IDE")
         }

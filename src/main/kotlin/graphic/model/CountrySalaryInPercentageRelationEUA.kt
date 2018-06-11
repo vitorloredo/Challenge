@@ -2,7 +2,9 @@ package graphic.model
 
 import java.text.DecimalFormat
 
-class CountrySalaryInPercentageRelationEUA(val country: String, val euaAverageSalary: Double, val SalaryAverage: Double) {
+class CountrySalaryInPercentageRelationEUA(val country: String,
+                                           private val euaAverageSalary: Double,
+                                           private val SalaryAverage: Double) {
 
     private val decimalFormat = DecimalFormat("#0.00")
 
@@ -11,6 +13,6 @@ class CountrySalaryInPercentageRelationEUA(val country: String, val euaAverageSa
     }
 
     override fun toString(): String {
-        return "$country,%${decimalFormat.format(percentage())}"
+        return "$country,%${decimalFormat.format(percentage()).replace(",",".")}"
     }
 }

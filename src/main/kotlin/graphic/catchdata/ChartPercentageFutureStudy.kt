@@ -37,8 +37,8 @@ class ChartPercentageFutureStudy(val title: String) {
         val new = decimalFormat.format(math())
         val total = decimalFormat.format(100 - math())
 
-        createPie.setValue("Nova linguagem : %$total", wantLearnNewLanguage.toDouble())
-        createPie.setValue("Usuarios : %$new", totalOfUsers.toDouble())
+        createPie.setValue("Querem: %$total", wantLearnNewLanguage.toDouble())
+        createPie.setValue("Nao querem: %$new", totalOfUsers.toDouble())
         createPie.factory()
     }
 }

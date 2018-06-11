@@ -21,8 +21,8 @@ class CreateHistogram(private val title: String) {
 
     fun factory() {
         val graf = ChartFactory.createHistogram(title,
-                "Paises",
-                "Reais",
+                "Intervalo",
+                "Frequencia",
                 histogram,
                 PlotOrientation.VERTICAL,
                 true,
@@ -38,4 +38,6 @@ class CreateHistogram(private val title: String) {
         ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
         file.close()
     }
+
+
 }
