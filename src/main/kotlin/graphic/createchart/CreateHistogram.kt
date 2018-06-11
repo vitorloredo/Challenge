@@ -1,4 +1,4 @@
-package graphic.createGraphic
+package graphic.createchart
 
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartUtilities
@@ -38,6 +38,4 @@ class CreateHistogram(private val title: String) {
         ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
         file.close()
     }
-
-
 }

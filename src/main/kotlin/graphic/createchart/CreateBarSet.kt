@@ -1,4 +1,4 @@
-package graphic.createGraphic
+package graphic.createchart
 
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartUtilities
@@ -14,7 +14,7 @@ class CreateBarSet(private val title: String,
 
     private val defaultCategory = DefaultCategoryDataset()
 
-    fun setValue(name: String, value: Double, nameGroup : String) {
+    fun setValue(name: String, value: Double, nameGroup: String) {
         defaultCategory.addValue(value, name, nameGroup)
     }
 
@@ -37,5 +37,4 @@ class CreateBarSet(private val title: String,
         ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
         file.close()
     }
-
 }

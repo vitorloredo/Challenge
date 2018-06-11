@@ -9,7 +9,6 @@ class SetUnknownValuesCountrySalary(private val arrayData: ArrayList<Data>,
     private val baseValueConvertedSalary = -1.0
 
     fun setConvertedSalaryUnknown() {
-
         for (it in idCountry) {
             val idCountryUnknown = arrayListOf<Int>()
             val idList = it.value
@@ -36,6 +35,7 @@ class SetUnknownValuesCountrySalary(private val arrayData: ArrayList<Data>,
     private fun createAverageCountryAndSearchUnknown(idList: MutableList<Int>, arrayData: ArrayList<Data>,
                                                      idCountryUnknown: ArrayList<Int>): Double {
         var allValuesCont = 0.0
+
         for (id in idList) {
             val convertedSalaryCountry = arrayData[id].convertedSalary
 

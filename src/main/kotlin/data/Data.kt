@@ -1,6 +1,7 @@
 package data
 
 class Data(value: String) {
+
     private val valueBase = -1.0
     private val respondent: String
     private val hobby: String

@@ -1,6 +1,7 @@
 package graphic.model
 
 class ModelHigherEducation(val title: String) {
+
     var salaryListBachelor = arrayListOf<Double>()
         private set(value) {}
     var salaryListMaster = arrayListOf<Double>()

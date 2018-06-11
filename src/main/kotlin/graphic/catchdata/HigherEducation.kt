@@ -2,24 +2,25 @@ package graphic.catchdata
 
 import graphic.model.CountrySalaryMedianInReal
 import data.Data
-import graphic.createGraphic.CreateBarSet
+import graphic.createchart.CreateBarSet
 import graphic.model.ModelHigherEducation
 
 class HigherEducation() {
+
     val title = "Media do mais alto grau de escolaridade em comparacao a media salarial de alguns paises"
     private val graphicFireData = ModelHigherEducation("United States")
-    var contriy = mutableListOf<CountrySalaryMedianInReal>()
+    private var contriy = mutableListOf<CountrySalaryMedianInReal>()
 
 
     fun generateChart() {
         val createBarSet = CreateBarSet(title, "EUA/Outros paises", "Escolaridade")
 
-        createBarSet.setValue("United States/Master", graphicFireData.medianMaster(),"")
-        createBarSet.setValue("United States/Bachelor", graphicFireData.medianBachelor(),"")
-        createBarSet.setValue("United States/Other", graphicFireData.medianOther(),"")
+        createBarSet.setValue("United States/Master", graphicFireData.medianMaster(), "")
+        createBarSet.setValue("United States/Bachelor", graphicFireData.medianBachelor(), "")
+        createBarSet.setValue("United States/Other", graphicFireData.medianOther(), "")
 
         contriy.forEach {
-            createBarSet.setValue(it.country, it.median(),"")
+            createBarSet.setValue(it.country, it.median(), "")
         }
 
         createBarSet.factory()
@@ -56,7 +57,4 @@ class HigherEducation() {
                 graphicFireData.salaryListOther.add(brazilMonthlySalary.toDouble())
         }
     }
-
-
 }
-

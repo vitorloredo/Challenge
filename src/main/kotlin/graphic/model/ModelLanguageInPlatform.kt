@@ -1,10 +1,10 @@
 package graphic.model
 
-class ModelLanguageInIDE(val title: String) {
+class ModelLanguageInPlatform(val title: String) {
 
     val hashMap = hashMapOf<String, Int>()
 
-    fun setLanguage(brazilMonthlySalary: List<String>) {
+    fun setPlatform(brazilMonthlySalary: List<String>) {
         for (it in brazilMonthlySalary) {
             if (contains(it)) {
                 hashMap[it] = hashMap[it]!! + 1
@@ -18,7 +18,7 @@ class ModelLanguageInIDE(val title: String) {
 
     fun contains(string: String) = hashMap.contains(string)
 
-    fun setAll(languageWorkedWith: List<String>) {
+    fun setAllPlatform(languageWorkedWith: List<String>) {
         for (it in languageWorkedWith) {
             hashMap[it] = 1
         }

@@ -1,4 +1,4 @@
-package graphic.createGraphic
+package graphic.createchart
 
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartUtilities
@@ -7,11 +7,12 @@ import org.jfree.data.general.DefaultPieDataset
 import java.io.File
 import java.io.FileOutputStream
 
-class CreatePiaChart(val title: String){
+class CreatePiaChart(val title: String) {
+
     private val defaultCategory = DefaultPieDataset()
 
     fun setValue(name: String, value: Double) {
-        defaultCategory.setValue(name,value)
+        defaultCategory.setValue(name, value)
     }
 
     fun factory() {

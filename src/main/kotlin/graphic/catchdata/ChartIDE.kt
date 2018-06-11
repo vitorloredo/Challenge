@@ -2,16 +2,17 @@ package graphic.catchdata
 
 import data.Data
 import extend.isUnknown
-import graphic.createGraphic.CreateBarSet
+import graphic.createchart.CreateBarSet
 
 class ChartIDE() {
+
     val title = "IDE"
     private val contIDE = hashMapOf<String, Double>()
 
     fun generateChart() {
         val createBarSet = CreateBarSet(title, "IDE", "Quantidade")
         for (it in contIDE.keys) {
-            createBarSet.setValue(it, contIDE[it]!!,"IDE")
+            createBarSet.setValue(it, contIDE[it]!!, "IDE")
         }
 
         createBarSet.factory()

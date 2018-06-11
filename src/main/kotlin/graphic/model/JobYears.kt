@@ -23,8 +23,4 @@ class JobYears(name: String) {
                 never += 1
         }
     }
-
-
-
-
 }

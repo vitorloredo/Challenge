@@ -1,4 +1,4 @@
-package graphic.createGraphic
+package graphic.createchart
 
 import org.jfree.chart.ChartFactory
 import org.jfree.chart.ChartUtilities
@@ -9,19 +9,16 @@ import java.io.File
 import java.io.FileOutputStream
 
 
-class CreateBarStacked(val title: String){
+class CreateBarStacked(val title: String) {
 
     private var defaultCategory = DefaultCategoryDataset()
 
-    fun setValue(name: String, value: Double,nameGroup: String){
-
-        defaultCategory.setValue(value,name,nameGroup)
-
-        
+    fun setValue(name: String, value: Double, nameGroup: String) {
+        defaultCategory.setValue(value, name, nameGroup)
     }
 
     fun factory() {
-        ChartFactory.createStackedBarChart(title,
+        val createStackedBarChart = ChartFactory.createStackedBarChart(title,
                 "Paises",
                 "Reais",
                 defaultCategory,
@@ -29,13 +26,14 @@ class CreateBarStacked(val title: String){
                 true,
                 true,
                 false)
+
+        create(createStackedBarChart)
     }
 
     private fun create(graf: JFreeChart) {
         val baseName = File(".").canonicalPath
-        val file = FileOutputStream("$baseName\\src\\info\\Stacked.png")
-        ChartUtilities.writeChartAsPNG(file, graf, 1550, 1400)
+        val file = FileOutputStream("$baseName\\src\\info\\$title.png")
+        ChartUtilities.writeChartAsPNG(file, graf, 2550, 2400)
         file.close()
     }
-
 }

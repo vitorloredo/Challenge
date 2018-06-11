@@ -5,6 +5,7 @@ import java.text.DecimalFormat
 import java.util.*
 
 class CreateBrazilMonthlySalary(private val arrayData: ArrayList<Data>) {
+
     private val format = DecimalFormat.getCurrencyInstance(Locale("pt", "br"))
 
     fun setAll() {

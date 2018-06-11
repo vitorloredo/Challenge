@@ -1,9 +1,10 @@
-package graphic.createGraphic
+package graphic.catchdata
 
 import extend.isUnknown
+import graphic.createchart.CreatePiaChart
 import java.text.DecimalFormat
 
-class CSVPercentageFutureStudy(val title: String) {
+class ChartPercentageFutureStudy(val title: String) {
     var totalOfUsers: Int = 0
     var wantLearnNewLanguage: Int = 0
 

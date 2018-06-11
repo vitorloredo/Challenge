@@ -3,9 +3,10 @@ package graphic.catchdata
 import graphic.model.CountrySalaryMedianInReal
 import data.Data
 import extend.isUnknown
-import graphic.createGraphic.CreateBarSet
+import graphic.createchart.CreateBarSet
 
 class ChartMedianSalaryInReal {
+
     var title: String = "Media dos salarios em Reais(R$)"
     var medianOfSalaries = mutableListOf<CountrySalaryMedianInReal>()
 
@@ -16,7 +17,7 @@ class ChartMedianSalaryInReal {
 
         val notContainsCountry = !medianOfSalaries.any { x -> x.country == data.country }
 
-        if (notContainsCountry) { //se nao existe o pais
+        if (notContainsCountry) {
             val salaryInReal = ArrayList<Double>()
             salaryInReal.add(data.brazilMonthlySalary.toDouble())
             val model = CountrySalaryMedianInReal(data.country, salaryInReal)
@@ -30,7 +31,7 @@ class ChartMedianSalaryInReal {
 
     fun generateChart() {
         val createBarSet = CreateBarSet(title, "Paises", "Salarios")
-        medianOfSalaries.forEach { it -> createBarSet.setValue(it.country, it.median(),"Paises") }
+        medianOfSalaries.forEach { it -> createBarSet.setValue(it.country, it.median(), "Paises") }
         createBarSet.factory()
     }
 }
