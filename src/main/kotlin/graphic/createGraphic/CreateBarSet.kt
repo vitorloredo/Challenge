@@ -14,8 +14,8 @@ class CreateBarSet(private val title: String,
 
     private val defaultCategory = DefaultCategoryDataset()
 
-    fun setValue(name: String, value: Double) {
-        defaultCategory.addValue(value, name, name)
+    fun setValue(name: String, value: Double, nameGroup : String) {
+        defaultCategory.addValue(value, name, nameGroup)
     }
 
     fun factory() {

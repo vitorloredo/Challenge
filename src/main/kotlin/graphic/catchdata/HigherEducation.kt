@@ -12,14 +12,14 @@ class HigherEducation() {
 
 
     fun generateChart() {
-        val createBarSet = CreateBarSet(title, "Type", "Escolaridade")
+        val createBarSet = CreateBarSet(title, "EUA/Outros paises", "Escolaridade")
 
-        createBarSet.setValue("United States/Master", graphicFireData.medianMaster())
-        createBarSet.setValue("United States/Bachelor", graphicFireData.medianBachelor())
-        createBarSet.setValue("United States/Other", graphicFireData.medianOther())
+        createBarSet.setValue("United States/Master", graphicFireData.medianMaster(),"")
+        createBarSet.setValue("United States/Bachelor", graphicFireData.medianBachelor(),"")
+        createBarSet.setValue("United States/Other", graphicFireData.medianOther(),"")
 
         contriy.forEach {
-            createBarSet.setValue(it.country, it.median())
+            createBarSet.setValue(it.country, it.median(),"")
         }
 
         createBarSet.factory()

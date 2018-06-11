@@ -11,7 +11,7 @@ class ChartIDE() {
     fun generateChart() {
         val createBarSet = CreateBarSet(title, "IDE", "Quantidade")
         for (it in contIDE.keys) {
-            createBarSet.setValue(it, contIDE[it]!!)
+            createBarSet.setValue(it, contIDE[it]!!,"IDE")
         }
 
         createBarSet.factory()

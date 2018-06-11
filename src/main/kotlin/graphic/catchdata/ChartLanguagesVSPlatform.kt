@@ -3,18 +3,21 @@ package graphic.catchdata
 import data.Data
 import extend.isUnknown
 import graphic.createGraphic.CreateBarSet
+import graphic.createGraphic.CreateBarStacked
 import graphic.model.ModelLanguageInIDE
 
 class ChartLanguagesVSPlatform() {
     val title = "Linguagem vs IDE"
     private val arrayLanguage = arrayListOf<String>()
     private val arrayGraphicThree = arrayListOf<ModelLanguageInIDE>()
-    private val createBarSet = CreateBarSet("Linguagem vs IDE", "TsteX", "TExtY")
+    private val createBarSet = CreateBarStacked("Linguagem vs IDE")
 
-    fun createGraphic() {
+    fun generateChart() {
         for (it in arrayGraphicThree) {
-            for (id in it.hashMap.keys)
-                createBarSet.setValue(it.title, it.have(id))
+            for (id in it.hashMap.keys) {
+                createBarSet.setValue(it.title, it.have(id), id)
+            }
+
         }
 
         createBarSet.factory()

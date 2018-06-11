@@ -92,6 +92,8 @@ class ReadData {
         jobSearch.generateCSV()
         jobPermanence.generateCSV()
 
+        chartLanguagesVSPlatform.generateChart()
+
     }
 
 }

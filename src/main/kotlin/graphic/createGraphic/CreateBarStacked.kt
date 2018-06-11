@@ -13,9 +13,9 @@ class CreateBarStacked(val title: String){
 
     private var defaultCategory = DefaultCategoryDataset()
 
-    fun setValue(name: String, value: Double){
+    fun setValue(name: String, value: Double,nameGroup: String){
 
-        defaultCategory.setValue(value,name,name)
+        defaultCategory.setValue(value,name,nameGroup)
 
         
     }

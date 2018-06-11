@@ -30,7 +30,7 @@ class ChartMedianSalaryInReal {
 
     fun generateChart() {
         val createBarSet = CreateBarSet(title, "Paises", "Salarios")
-        medianOfSalaries.forEach { it -> createBarSet.setValue(it.country, it.median()) }
+        medianOfSalaries.forEach { it -> createBarSet.setValue(it.country, it.median(),"Paises") }
         createBarSet.factory()
     }
 }
