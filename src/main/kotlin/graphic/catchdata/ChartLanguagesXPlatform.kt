@@ -7,7 +7,7 @@ import graphic.model.ModelLanguageInPlatform
 
 class ChartLanguagesXPlatform() {
 
-    val title = "Linguagem vs IDE"
+    val title = "Linguagem x IDE"
     private val arrayLanguage = arrayListOf<String>()
     private val arrayGraphicThree = arrayListOf<ModelLanguageInPlatform>()
     private val createBarSet = CreateBarStacked("Linguagem de programação x Sistema operacional",

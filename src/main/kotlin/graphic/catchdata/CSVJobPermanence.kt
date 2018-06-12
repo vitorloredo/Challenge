@@ -8,7 +8,7 @@ import java.io.FileWriter
 
 class CSVJobPermanence {
 
-    private var title: String = "Sastifacao do trabalho"
+    private var title: String = "Satisfação do trabalho em relação à sua permanência"
 
     private val jobYearsModeratelySatisfied = JobYears("Moderately satisfied")
     private val jobYearsExtremelyDissatisfied = JobYears("Extremely dissatisfied")

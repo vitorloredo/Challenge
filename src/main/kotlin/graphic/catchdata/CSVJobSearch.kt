@@ -8,7 +8,7 @@ import java.io.FileWriter
 
 class CSVJobSearch {
 
-    private var title: String = "JobSearch"
+    private var title: String = "Satisfação do trabalho em relação à busca de novos trabalhos"
     private val jobSatisfactionModeratelySatisfied = JobSatisfaction("Moderately satisfied")
     private val jobSatisfactionExtremelyDissatisfied = JobSatisfaction("Extremely dissatisfied")
     private val jobSatisfactionSlightlySatisfied = JobSatisfaction("Slightly satisfied")

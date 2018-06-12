@@ -7,7 +7,7 @@ import graphic.model.ModelHigherEducation
 
 class HigherEducation() {
 
-    val title = "Media do alto grau de escolaridade(Bacharelado, Mestre e Doutorado) em comparacao a media salarial de alguns paises"
+    val title = "Media do alto grau de escolaridade (Bacharelado, Mestre e Doutorado) em comparação a media salarial de alguns países"
     private val graphicFireData = ModelHigherEducation("United States")
     private var contriy = mutableListOf<CountrySalaryMedianInReal>()
 

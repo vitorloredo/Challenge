@@ -8,7 +8,7 @@ import java.io.FileWriter
 
 class CSVPercentageEUAInRelationToOthers {
 
-    val title = "Media salario dos EUA em percentual em relacao a outros paises"
+    val title = "Media salário dos EUA em percentual em relação a outros países"
     private val arrayCountrySalary = arrayListOf<CountrySalaryInPercentageRelationEUA>()
 
     fun insertNewData(chartMedianSalaryInReal: ChartMedianSalaryInReal) {

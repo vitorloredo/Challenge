@@ -7,7 +7,7 @@ import graphic.createchart.CreateBarSet
 
 class ChartMedianSalaryInReal {
 
-    var title: String = "Media dos salarios em Reais(R$)"
+    var title: String = "Media dos salários em Reais(R$)"
     var medianOfSalaries = mutableListOf<CountrySalaryMedianInReal>()
 
     fun insertNewData(data: Data) {
