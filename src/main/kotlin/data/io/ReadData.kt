@@ -27,6 +27,9 @@ class ReadData {
     private val jobSearch = CSVJobSearch()
     private val jobPermanence = CSVJobPermanence()
 
+    private val hopeFiveYears = HopeFireYears()
+
+
     fun read() {
         val baseName = File(".").canonicalPath
         val localFileName = FileReader("$baseName\\src\\info\\base_de_respostas.csv")
@@ -54,6 +57,8 @@ class ReadData {
             jobPermanence.insertNewData(data.careerSatisfaction, data.lastNewJob)
 
             chartMedianSalaryInReal.insertNewData(data)
+
+            hopeFiveYears.insertNewData(data)
 
             line = read.readLine()
         }
@@ -89,6 +94,8 @@ class ReadData {
 
         jobSearch.generateCSV()
         jobPermanence.generateCSV()
+
+        hopeFiveYears.generateChart()
 
     }
 

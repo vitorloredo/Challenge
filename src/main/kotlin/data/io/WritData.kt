@@ -8,7 +8,7 @@ import java.io.FileWriter
 class WritData(private val arrayData: ArrayList<Data>) {
     fun white() {
         val baseName = File(".").canonicalPath
-        val localFileName = FileWriter("$baseName\\src\\info\\base_de_respostas_final.csv")
+        val localFileName = FileWriter("$baseName\\src\\info\\base de respostas finalizado.csv")
         val white = BufferedWriter(localFileName)
 
         val line = header()

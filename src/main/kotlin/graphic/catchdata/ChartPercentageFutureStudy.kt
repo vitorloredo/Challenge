@@ -5,8 +5,8 @@ import graphic.createchart.CreatePiaChart
 import java.text.DecimalFormat
 
 class ChartPercentageFutureStudy(val title: String) {
-    var totalOfUsers: Int = 0
-    var wantLearnNewLanguage: Int = 0
+    private var totalOfUsers: Int = 0
+    private var wantLearnNewLanguage: Int = 0
 
     fun insertNewData(workedWith: String, desireNextYear: String) {
 

@@ -17,7 +17,7 @@ class Data(value: String) {
     private val yearsCodingProf: String
     val jobSatisfaction: String
     val careerSatisfaction: String
-    private val hopeFiveYears: String
+    val hopeFiveYears: String
     val jobSearchStatus: String
     val lastNewJob: String
     private val assessJob1: String
