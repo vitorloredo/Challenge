@@ -27,7 +27,7 @@ class ReadData {
     private val jobSearch = CSVJobSearch()
     private val jobPermanence = CSVJobPermanence()
 
-    private val hopeFiveYears = HopeFireYears()
+    private val hopeFiveYears = HopeFiveYears()
 
 
     fun read() {

@@ -4,8 +4,8 @@ import data.Data
 import extend.isUnknown
 import graphic.createchart.CreatePiaChart
 
-class HopeFireYears {
-    val title = "Hope Fire Years"
+class HopeFiveYears {
+    val title = "Hope Five Years"
     private val contHope = hashMapOf<String, Double>()
 
     fun generateChart() {
